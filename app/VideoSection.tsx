@@ -37,7 +37,7 @@ const statsData: StatsDataProps[] = [{
 
 export default function VideoSection() {
   return (
-    <section className="h-screen relative grid place-content-center">
+    <section className="h-[50vh] relative grid place-content-center">
       <video className="absolute pointer-events-none size-full object-cover" muted loop autoPlay>
         <source src="/virtual-labs.mp4" type="video/mp4" />
       </video>
