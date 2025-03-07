@@ -22,7 +22,7 @@ export default function TextScramble({
   const rotateTime = 100 * animationSpeedFactor
   const letterTime = 1000 * animationSpeedFactor
   const cancelRotateTime = 5000 * animationSpeedFactor
-  const suggestionTime = 3000 * animationSpeedFactor
+  const suggestionTime = 8000 * animationSpeedFactor
 
   // Animation state references
   const animationRef = useRef<{
