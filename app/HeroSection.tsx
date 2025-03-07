@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-dark-background text-dark-foreground h-screen flex flex-col items-center justify-center pt-10">
+    <section className="relative h-screen flex flex-col items-center justify-center pt-10">
       <Image
         src='/background.png'
         fill

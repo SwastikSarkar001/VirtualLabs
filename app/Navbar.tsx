@@ -6,11 +6,8 @@ import { PiFlaskFill } from "react-icons/pi";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { IoSunnyOutline, IoMoon } from "react-icons/io5";
-import { useTheme } from "next-themes";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme()
   return (
     <nav className="self-center backdrop-blur-lg fixed flex items-center justify-between top-10 ml-auto w-[90%] md:w-4/5 z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
       <Explore />
@@ -18,24 +15,12 @@ export default function Navbar() {
         <PiFlaskFill className="size-[1.3em] text-violet-400" />
         <div>Virtual Labs</div>
       </Link>
-      <div className="flex gap-4">
-        <button
-          onClick={ () => setTheme(prev => prev === 'dark' ? 'light' : 'dark') }
-          className="cursor-pointer flex gap-1.5 text-sm items-center bg-gradient-to-b from-violet-700 to-violet-900 hover:to-violet-800 transition-colors py-1 px-2 rounded-lg"
-        >
-          {
-            theme === 'dark' ?
-            <IoMoon /> :
-            <IoSunnyOutline />
-          }
-        </button>
-        <button className="cursor-pointer flex gap-1.5 text-sm items-center bg-gradient-to-b from-violet-700 to-violet-900 hover:to-violet-800 transition-colors py-1 px-2 rounded-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-[1.1em]">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-          <div>Search</div>
-        </button>
-      </div>
+      <button className="cursor-pointer flex gap-1.5 text-sm items-center bg-gradient-to-b from-violet-700 to-violet-900 hover:to-violet-800 transition-colors py-1 px-2 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-[1.1em]">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <div>Search</div>
+      </button>
     </nav>
   )
 }
@@ -112,7 +97,7 @@ export function ExploreOverlay() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          className="fixed top-0 left-0 w-full h-full backdrop-blur-xl z-999"
+          className="fixed font-body top-0 left-0 w-full h-full backdrop-blur-xl z-999"
         >
           <div className="flex items-center justify-center w-full h-full bg-opacity-50">
             <div className="w-4/5 h-4/5 rounded-xl">
@@ -140,28 +125,28 @@ export function ExploreOverlay() {
                 onMouseLeave={ () => setPosition(prev => ({ ...prev, opacity: 0 })) }
               >
                 <Tab setPosition={setPosition} onClick={context.closeExplore}>
-                  <Link href="/start-learning" className=" px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
+                  <div className="px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
                     <div>Start Learning</div>
                     <HiOutlineChevronRight />
-                  </Link>
+                  </div>
                 </Tab>
                 <Tab setPosition={setPosition} onClick={context.closeExplore}>
-                  <Link href="/about-us" className=" px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all">
+                  <div className="px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
                     <div>About Us</div>
                     <HiOutlineChevronRight />
-                  </Link>
+                  </div>
                 </Tab>
                 <Tab setPosition={setPosition} onClick={context.closeExplore}>
-                  <Link href="/activities" className=" px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all">
+                  <div className="px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
                     <div>Activities</div>
                     <HiOutlineChevronRight />
-                  </Link>
+                  </div>
                 </Tab>
                 <Tab setPosition={setPosition} onClick={context.closeExplore}>
-                  <Link href="/analytics" className=" px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all">
+                  <div className="px-4 py-2 text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
                     <div>Analytics</div>
                     <HiOutlineChevronRight />
-                  </Link>
+                  </div>
                 </Tab>
                 <Cursor position={position} />
               </ul>

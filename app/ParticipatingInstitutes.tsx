@@ -8,7 +8,7 @@ export default function ParticipatingInstitutes() {
         <div className="flex gap-4 *:flex *:flex-col *:items-center *:text-center *:gap-2">
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitkgp.svg'
               width={150}
               height={150}
@@ -19,7 +19,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitr.svg'
               width={150}
               height={150}
@@ -30,7 +30,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitg.svg'
               width={150}
               height={150}
@@ -41,7 +41,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitd.svg'
               width={150}
               height={150}
@@ -52,7 +52,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitb.svg'
               width={150}
               height={150}
@@ -63,7 +63,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iitk.svg'
               width={150}
               height={150}
@@ -74,7 +74,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/iiith.png'
               width={150}
               height={150}
@@ -85,7 +85,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/avv.svg'
               width={150}
               height={150}
@@ -96,7 +96,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/dei.jpg'
               width={150}
               height={150}
@@ -107,7 +107,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/nitk.png'
               width={150}
               height={150}
@@ -118,7 +118,7 @@ export default function ParticipatingInstitutes() {
           </div>
           <div>
             <Image
-              className="grayscale dark:invert"
+              className="grayscale invert"
               src='/institute-logos/coep.jpg'
               width={150}
               height={150}
