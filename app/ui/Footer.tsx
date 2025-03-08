@@ -7,12 +7,12 @@ import { SiInstagram, SiYoutube } from "react-icons/si";
 export default function Footer() {
   return (
     <footer className="mt-auto border-t-2 p-8 sm:p-12 sm:pb-4 border-violet-400/30 flex flex-col items-stretch gap-8 text-sm">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 items-center *:not-sm:mx-auto">
         <div className="flex flex-col sm:not-lg:justify-center sm:not-lg:justify-self-center gap-2 sm:not-lg:col-span-2">
-          <Link href="/" className='flex gap-2 items-center sm:not-lg:justify-center text-2xl text-violet-400'>
+          <Link href="/" className='flex gap-2 items-center not-lg:justify-center text-2xl text-violet-400'>
             <div className="font-bold">Virtual Labs</div>
           </Link>
-          <div className="sm:not-lg:text-center">
+          <div className="not-lg:text-center">
             <p>Engineering and Architecture Division</p>
             <p>Room No:B5-203,</p>
             <p>Vindhya C6, VLEAD,</p>
@@ -20,7 +20,7 @@ export default function Footer() {
             <p>Hyderabad - 500032</p>
           </div>
         </div>
-        <div className="flex flex-col gap-1 w-max">
+        <div className="flex flex-col gap-1 w-max lg:mx-auto">
           <Link className="flex items-center gap-2 *:first:text-[1.2em] text-neutral-300 hover:text-indigo-400 transition-colors" href='https://www.facebook.com/vlead.iiithyd' passHref target="_blank">
             <BiLogoFacebook /><div>/vlead.iiithyd</div>
           </Link>

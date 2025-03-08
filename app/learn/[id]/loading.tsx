@@ -25,7 +25,7 @@ export default function Loading() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-16 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 p-16 pt-8">
           {Array(9).fill(0).map((_, index) => (
             <div key={index} className="relative p-8 text-center flex flex-col items-center justify-center gap-8 bg-gray-500 animate-pulse aspect-[5/6] border-2 border-gray-700 rounded-bl-2xl rounded-tl-4xl rounded-br-4xl">
               <div className="absolute bg-gray-700 top-0 right-0 z-1 border-l-2 border-b-2 border-gray-700 pl-6 pb-6 pt-3 pr-3 rounded-bl-full">

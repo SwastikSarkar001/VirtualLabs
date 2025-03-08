@@ -65,8 +65,8 @@ export default function CourseCard({ course }: { course: CourseProp }) {
   }
 
   return (
-    <div className="relative p-8 text-center flex flex-col items-center justify-center gap-8 bg-amber-600/5 aspect-[5/6] border-2 border-amber-600 rounded-bl-2xl rounded-tl-4xl rounded-br-4xl transition-all hover:shadow-lg hover:shadow-amber-400/30">
-      <div className="absolute bg-amber-600/10 top-0 right-0 z-1 border-l-2 border-b-2 border-amber-600 pl-6 pb-6 pt-3 pr-3 rounded-bl-full">
+    <div className="not-sm:w-[90%] sm:not-md:w-4/5 not-md:mx-auto relative p-8 text-center flex flex-col items-center justify-center gap-8 bg-violet-600/5 border-2 border-violet-600 rounded-bl-2xl rounded-tl-4xl rounded-br-4xl transition-all hover:shadow-lg hover:shadow-violet-400/30">
+      <div className="absolute bg-violet-600/10 top-0 right-0 z-1 border-l-2 border-b-2 border-violet-600 pl-6 pb-6 pt-3 pr-3 rounded-bl-full">
         <button
           className={`cursor-pointer transition-transform duration-300 hover:scale-110${isLoading ? " animate-pulse pointer-events-none" : ''}`}
           onClick={handleFavoriteToggle}
@@ -78,7 +78,7 @@ export default function CourseCard({ course }: { course: CourseProp }) {
           </svg>
         </button>
       </div>
-      <div className="overflow-hidden rounded-tr-4xl rounded-bl-4xl border-2 border-amber-600">
+      <div className="overflow-hidden rounded-tr-4xl rounded-bl-4xl border-2 border-violet-600">
         <Image
           width={200}
           height={200}
@@ -89,8 +89,8 @@ export default function CourseCard({ course }: { course: CourseProp }) {
         />
       </div>
       <div className="flex flex-col gap-2 mt-auto w-full">
-        <h2 className="text-xl font-bold mb-2 line-clamp-2 h-14">{course.courseName}</h2>
-        <p className="text-sm line-clamp-2 h-10 text-gray-600">{course.courseDescription}</p>
+        <h2 className="text-xl font-bold mb-2">{course.courseName}</h2>
+        <p className="text-sm text-gray-600">{course.courseDescription}</p>
         {renderRating()}
         <div className="text-xs text-gray-500 mt-1">
           Updated on {new Date(course.courseUpdationDate).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -98,7 +98,7 @@ export default function CourseCard({ course }: { course: CourseProp }) {
       </div>
       <Link
         href={course.courseRouteUrl}
-        className="px-6 py-2 border-2 rounded-full border-amber-600 hover:bg-amber-600 hover:text-white transition-colors duration-300"
+        className="px-6 py-2 border-2 rounded-full border-violet-600 hover:bg-violet-600 hover:text-white transition-colors duration-300"
       >
         Start Learning
       </Link>

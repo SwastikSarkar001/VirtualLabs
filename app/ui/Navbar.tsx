@@ -6,6 +6,7 @@ import { PiFlaskFill } from "react-icons/pi";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
+import { subjects } from "@/data/data";
 
 export default function Navbar() {
   return (
@@ -107,17 +108,7 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
 
   // Define suboptions for each tab.
   const subOptions = {
-    learn: [
-      { label: "Electronics and Communications Engineering", href: "/learn/electronics" },
-      { label: "Biotechnology and Biomedical Engineering", href: "/learn/biotechnology" },
-      { label: "Computer Science Engineering", href: "/learn/computer-science" },
-      { label: "Civil Engineering", href: "/learn/civil" },
-      { label: "Electrical Engineering", href: "/learn/electrical" },
-      { label: "Physical Sciences", href: "/learn/physical-science" },
-      { label: "Mechanical Engineering", href: "/learn/mechanical" },
-      { label: "Chemical Sciences", href: "/learn/chemical-science" },
-      { label: "Chemical Engineering", href: "/learn/chemical" },
-    ],
+    learn: subjects.map((subject) => ({ label: subject.fieldName, href: `/learn/${subject.fieldRouteName}` })),
     about: [
       { label: "VLeads", href: "/about/vleads" },
       { label: "Virtual Labs", href: "/about/virtual-labs" },
