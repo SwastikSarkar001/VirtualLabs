@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function ParticipatingInstitutes() {
   return (
-    <section className="flex flex-col items-stretch">
+    <section className="flex flex-col items-stretch gap-16 py-16">
       <h1 className="text-4xl self-center">Participating Institutes</h1>
-      {/* <div className="w-full overflow-x-hidden"> */}
-        <div className="flex gap-4 *:flex *:flex-col *:items-center *:text-center *:gap-2">
+      <div className="w-full overflow-x-hidden">
+        <div className="flex items-center *:shrink-0 gap-16 *:flex *:flex-col *:items-center *:text-center *:gap-4">
           <div>
             <Image
               className="grayscale invert"
@@ -128,7 +128,7 @@ export default function ParticipatingInstitutes() {
             <div>COEP Technological University, Pune</div>
           </div>
         </div>
-      {/* </div> */}
+      </div>
     </section>
   )
 }

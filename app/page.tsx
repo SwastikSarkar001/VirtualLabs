@@ -2,7 +2,7 @@ import Footer from "./ui/Footer";
 import HeroSection from "./HeroSection";
 import Navbar from "./ui/Navbar";
 // import LearningSpheres from "./LearningSpheres";
-// import ParticipatingInstitutes from "./ParticipatingInstitutes";
+import ParticipatingInstitutes from "./ParticipatingInstitutes";
 import VideoSection from "./VideoSection";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       {/* <LearningSpheres /> */}
-      {/* <ParticipatingInstitutes /> */}
+      <ParticipatingInstitutes />
       <VideoSection />
       <Footer />
     </main>

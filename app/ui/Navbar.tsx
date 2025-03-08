@@ -10,7 +10,7 @@ import { subjects } from "@/data/data";
 
 export default function Navbar() {
   return (
-    <nav className="self-center backdrop-blur-lg sticky flex items-center justify-between top-10 w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
+    <nav className="self-center backdrop-blur-xl bg-indigo-950/50 sticky flex items-center justify-between top-10 w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
       <Explore />
       <Link href="/" className='flex gap-2 items-center'>
         <PiFlaskFill className="size-[1.3em] text-violet-400" />
