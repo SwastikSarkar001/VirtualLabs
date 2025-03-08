@@ -9,20 +9,19 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 
 export default function Navbar() {
   return (
-    <nav className="self-center backdrop-blur-lg fixed flex items-center justify-between top-10 ml-auto w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
+    <nav className="self-center backdrop-blur-lg sticky flex items-center justify-between top-10 w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
       <Explore />
-      <Link href="/" className="flex gap-2 items-center">
-        <PiFlaskFill className="text-[1.3em] text-violet-400" />
+      <Link href="/" className='flex gap-2 items-center'>
+        <PiFlaskFill className="size-[1.3em] text-violet-400" />
         <div>Virtual Labs</div>
       </Link>
-      <button className="cursor-pointer flex gap-1.5 text-sm items-center bg-gradient-to-b from-violet-700 to-violet-900 hover:to-violet-800 transition-colors py-1 px-2 rounded-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="text-[1.1em]">
+      <button className="cursor-pointer flex gap-1.5 text-sm items-center transition-colors rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
         </svg>
-        <div>Search</div>
       </button>
     </nav>
-  );
+  )
 }
 
 type ExploreContextProps = {
@@ -62,23 +61,22 @@ function Explore() {
 
   return (
     <ExploreContext.Provider value={contextValue}>
-      <div className="relative">
-        <button
-          onClick={openExplore}
-          className="cursor-pointer text-zinc-400 hover:text-fuchsia-400 transition-colors"
+      <button onClick={openExplore} className="size-6 cursor-pointer text-zinc-400 hover:text-fuchsia-400 transition-colors">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1"
+          viewBox="0 0 100 100"
+          fill='currentColor'
         >
-          {/* Icon or text for Explore */}
-          <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 100 100" fill="currentColor" className="w-6 h-6">
-            <path d="M14.4 15.1C11.7 18 11.8 28 14.5 31c1.6 1.8 2.8 2 8.4 1.8 6.3-.3 6.6-.4 6.6-2.8 0-2.3-.4-2.5-5.2-2.8l-5.3-.3V19h22.8c12.5 0 23.3-.4 24-.9.8-.5 1.2-1.7 1-2.7-.3-1.8-1.8-1.9-25.4-2.2-24.4-.2-25.1-.2-27 1.9" />
-            <path d="M72.4 14.5c-1 2.4 1.5 4.5 5.2 4.5 3.3 0 3.4.1 3.4 4v4H58.6c-23.4 0-25.5.4-24 4.4C35.1 32.8 38 33 59 33c28.6 0 28.5 0 28.5-9.8 0-8.2-1.9-10.2-9.2-10.2-3.9 0-5.5.4-5.9 1.5M14.4 42.1c-2.6 2.9-2.6 12.9 0 15.8 1.6 1.7 3.1 2.1 8.8 2.1 5.2 0 7-.4 7.4-1.5 1.1-2.7-1.6-4.5-6.7-4.5H19v-8h22c19.9 0 22-.2 22.8-1.8 2.1-4 1.1-4.2-23.7-4.2-22.8 0-23.9.1-25.7 2.1" />
-            <path d="M70.7 40.7c-1.3 1.2-.7 4.1.9 4.7.9.3 3.3.6 5.5.6 3.9 0 3.9 0 3.9 4v4H59c-19.9 0-22 .2-22.8 1.7-2.1 4.1-1.1 4.3 23.7 4.3 22.8 0 23.9-.1 25.7-2.1 1.4-1.5 1.9-3.6 1.9-7.9 0-8.2-1.8-10-10-10-3.4 0-6.5.3-6.8.7M14.4 69.1c-1.4 1.5-1.9 3.6-1.9 8 0 7.4 2 9.7 9.1 10.5 5.7.7 9.4-.7 9.4-3.5 0-2.3-1.9-3.1-7.6-3.1H19v-8h21.4c22.3 0 24.5-.4 23-4.4-.5-1.4-3.3-1.6-23.9-1.6-22.2 0-23.3.1-25.1 2.1" />
-            <path d="M68.4 68.5C67.3 71.3 70 73 75.6 73H81v8H59c-20.1 0-22 .1-22.9 1.8-.6 1.1-.6 2.4-.1 3.3.8 1.1 4.9 1.4 23.9 1.4 22.6 0 23.1 0 25.3-2.3 1.8-1.8 2.3-3.3 2.3-8.1 0-8.6-1.7-10.1-11.2-10.1-5.6 0-7.5.4-7.9 1.5" />
-          </svg>
-        </button>
-        <ExploreOverlay activeTab={activeTab} setActiveTab={setActiveTab} />
-      </div>
+          <path d="M14.4 15.1C11.7 18 11.8 28 14.5 31c1.6 1.8 2.8 2 8.4 1.8 6.3-.3 6.6-.4 6.6-2.8 0-2.3-.4-2.5-5.2-2.8l-5.3-.3V19h22.8c12.5 0 23.3-.4 24-.9.8-.5 1.2-1.7 1-2.7-.3-1.8-1.8-1.9-25.4-2.2-24.4-.2-25.1-.2-27 1.9" />
+          <path d="M72.4 14.5c-1 2.4 1.5 4.5 5.2 4.5 3.3 0 3.4.1 3.4 4v4H58.6c-23.4 0-25.5.4-24 4.4C35.1 32.8 38 33 59 33c28.6 0 28.5 0 28.5-9.8 0-8.2-1.9-10.2-9.2-10.2-3.9 0-5.5.4-5.9 1.5M14.4 42.1c-2.6 2.9-2.6 12.9 0 15.8 1.6 1.7 3.1 2.1 8.8 2.1 5.2 0 7-.4 7.4-1.5 1.1-2.7-1.6-4.5-6.7-4.5H19v-8h22c19.9 0 22-.2 22.8-1.8 2.1-4 1.1-4.2-23.7-4.2-22.8 0-23.9.1-25.7 2.1" />
+          <path d="M70.7 40.7c-1.3 1.2-.7 4.1.9 4.7.9.3 3.3.6 5.5.6 3.9 0 3.9 0 3.9 4v4H59c-19.9 0-22 .2-22.8 1.7-2.1 4.1-1.1 4.3 23.7 4.3 22.8 0 23.9-.1 25.7-2.1 1.4-1.5 1.9-3.6 1.9-7.9 0-8.2-1.8-10-10-10-3.4 0-6.5.3-6.8.7M14.4 69.1c-1.4 1.5-1.9 3.6-1.9 8 0 7.4 2 9.7 9.1 10.5 5.7.7 9.4-.7 9.4-3.5 0-2.3-1.9-3.1-7.6-3.1H19v-8h21.4c22.3 0 24.5-.4 23-4.4-.5-1.4-3.3-1.6-23.9-1.6-22.2 0-23.3.1-25.1 2.1" />
+          <path d="M68.4 68.5C67.3 71.3 70 73 75.6 73H81v8H59c-20.1 0-22 .1-22.9 1.8-.6 1.1-.6 2.4-.1 3.3.8 1.1 4.9 1.4 23.9 1.4 22.6 0 23.1 0 25.3-2.3 1.8-1.8 2.3-3.3 2.3-8.1 0-8.6-1.7-10.1-11.2-10.1-5.6 0-7.5.4-7.9 1.5" />
+        </svg>
+      </button>
+      <ExploreOverlay activeTab={activeTab} setActiveTab={setActiveTab} />
     </ExploreContext.Provider>
-  );
+  )
 }
 
 type ExploreOverlayProps = {
@@ -88,6 +86,12 @@ type ExploreOverlayProps = {
 
 export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps) {
   const [mounted, setMounted] = useState(false);
+  const [position, setPosition] = useState({
+    top: 0,
+    width: 0,
+    opacity: 0
+  })
+
   const context = useContext(ExploreContext);
   if (!context) {
     throw new Error("ExploreOverlay must be used within Explore");
@@ -98,6 +102,7 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
   useEffect(() => {
     setMounted(true);
   }, []);
+
   if (!mounted) return null;
 
   // Define suboptions for each tab.
@@ -138,10 +143,10 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
           transition={{ duration: 0.15 }}
           className="fixed font-body top-0 left-0 w-full h-full backdrop-blur-xl z-50"
         >
-          <div className="flex flex-col items-center justify-center w-full h-full bg-opacity-50">
-            <div className="w-4/5 md:w-2/3 lg:w-1/2 h-auto rounded-xl bg-gray-800 text-white">
-              <div className="flex items-center justify-between p-4 border-b border-gray-700">
-                <div className="text-3xl font-semibold">Explore</div>
+          <div className="flex items-center justify-center w-full h-full">
+            <div className="w-[90%] sm:w-4/5 h-4/5 rounded-xl">
+              <div className="flex items-center justify-between p-4">
+                <div className="text-2xl sm:text-3xl font-semibold">Explore</div>
                 <button
                   aria-label="Close Explore"
                   onClick={closeExplore}
@@ -160,37 +165,62 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
                   </svg>
-                </button>
+                  </button>
+                <div className="sr-only">Close Explore</div>
               </div>
-              <ul className="relative flex flex-col gap-4 p-4">
+              <ul
+                className="relative flex flex-col gap-4 p-4"
+                onMouseLeave={() => setPosition(prev => ({ ...prev, opacity: 0 }))}
+              >
                 <Tab
                   tabId="learn"
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
-                  title="Start Learn"
+                  setPosition={setPosition}
                   subOptions={subOptions.learn}
-                />
+                >
+                  <div className="px-4 py-2 text-lg sm:text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
+                    <div>Learning Spheres</div>
+                    <HiOutlineChevronRight />
+                  </div>
+                </Tab>
                 <Tab
                   tabId="about"
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
-                  title="About Us"
+                  setPosition={setPosition}
                   subOptions={subOptions.about}
-                />
+                >
+                  <div className="px-4 py-2 text-lg sm:text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
+                    <div>About Us</div>
+                    <HiOutlineChevronRight />
+                  </div>
+                </Tab>
                 <Tab
                   tabId="activities"
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
-                  title="Activities"
+                  setPosition={setPosition}
                   subOptions={subOptions.activities}
-                />
+                >
+                  <div className="px-4 py-2 text-lg sm:text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
+                    <div>Activities</div>
+                    <HiOutlineChevronRight />
+                  </div>
+                </Tab>
                 <Tab
                   tabId="analytics"
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
-                  title="Analytics"
+                  setPosition={setPosition}
                   subOptions={subOptions.analytics}
-                />
+                >
+                  <div className="px-4 py-2 text-lg sm:text-xl flex gap-2 group-hover:gap-3 items-center transition-all duration-500">
+                    <div>Analytics</div>
+                    <HiOutlineChevronRight />
+                  </div>
+                </Tab>
+                <Cursor position={position} />
               </ul>
             </div>
           </div>
@@ -201,43 +231,53 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
   );
 }
 
-type TabType = {
+type TabType = React.PropsWithChildren<{
+  setPosition: React.Dispatch<React.SetStateAction<{ top: number; width: number; opacity: number }>>;
   tabId: string;
-  title: string;
   subOptions: { label: string; href: string }[];
   activeTab: string | null;
   setActiveTab: React.Dispatch<React.SetStateAction<string | null>>;
-};
+}>
 
-function Tab({ tabId, title, subOptions, activeTab, setActiveTab }: TabType) {
+function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab }: TabType) {
   const listRef = useRef<HTMLLIElement>(null);
 
   // Handle hover (for desktop) and tap/click (for mobile) events.
-  const handleMouseEnter = () => setActiveTab(tabId);
   const handleMouseLeave = () => setActiveTab(null);
-  const handleClick = () =>
-    setActiveTab(prev => (prev === tabId ? null : tabId));
-
+  const handleClick = () => setActiveTab(prev => (prev === tabId ? null : tabId));
+  const getPos = () => {
+    if (listRef.current) {
+      const { width } = listRef.current.getBoundingClientRect();
+      setPosition({
+        top: listRef.current.offsetTop,
+        width,
+        opacity: 1
+      });
+    }
+  }
+  const handleMouseEnter = () => {
+    setActiveTab(tabId)
+    getPos()
+  }
   return (
     <li
       ref={listRef}
-      className="relative z-10 group"
+      className="relative z-1 w-max group transition-all"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
       <div className="flex items-center gap-2 text-xl cursor-pointer">
-        <span>{title}</span>
-        <HiOutlineChevronRight />
+        { children }
       </div>
       <AnimatePresence>
         {activeTab === tabId && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: -2 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 mt-2 z-20 bg-gray-700 rounded shadow-lg p-2 flex flex-col gap-2"
+            className="hidden absolute -top-2 left-[110%] w-80 mt-2 z-20 rounded shadow-lg p-2 sm:flex flex-col gap-2"
           >
             {subOptions.map((option) => (
               <Link
@@ -252,5 +292,15 @@ function Tab({ tabId, title, subOptions, activeTab, setActiveTab }: TabType) {
         )}
       </AnimatePresence>
     </li>
+  );
+}
+
+
+function Cursor({ position }: { position: { top: number; width: number; opacity: number } }) {
+  return (
+    <motion.li
+      animate={position}
+      className="absolute z-0 rounded-full bg-violet-500 h-11 pointer-events-none"
+    />
   );
 }

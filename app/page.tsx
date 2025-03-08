@@ -1,6 +1,6 @@
-import Footer from "./Footer";
+import Footer from "./ui/Footer";
 import HeroSection from "./HeroSection";
-import Navbar from "./Navbar";
+import Navbar from "./ui/Navbar";
 // import LearningSpheres from "./LearningSpheres";
 // import ParticipatingInstitutes from "./ParticipatingInstitutes";
 import VideoSection from "./VideoSection";
