@@ -2,6 +2,8 @@
 
 import { Space_Mono } from "next/font/google";
 import TextScramble from "./ui/TextScramble";
+// import TextScramble from "@/bin/text-scramble";
+// import { TextScrambleProvider } from "@/bin/text-scramble-context";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -42,8 +44,10 @@ export default function VideoSection() {
         <source src="/virtual-labs.mp4" type="video/mp4" />
       </video>
       <div className={`text-center z-1 flex flex-col gap-4`}>
-        <TextScramble suggestions={statsData.map(data => data.name)} className={`text-3xl sm:text-5xl font-extralight ${spaceMono.className}`} />
-        <TextScramble suggestions={statsData.map(data => data.value)} className={`text-xl sm:text-3xl font-semibold ${spaceMono.className}`} />
+        {/* <TextScrambleProvider suggestionTime={5000}> */}
+          <TextScramble suggestions={statsData.map(data => data.name)} className={`text-3xl sm:text-5xl font-extralight ${spaceMono.className}`} />
+          <TextScramble suggestions={statsData.map(data => data.value)} className={`text-xl sm:text-3xl font-semibold ${spaceMono.className}`} />
+        {/* </TextScrambleProvider> */}
       </div>
     </section>
   )

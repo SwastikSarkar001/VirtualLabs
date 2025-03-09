@@ -3,7 +3,7 @@ type ImageProp = {
   alt: string
 }
 
-type FieldProp = {
+export type FieldProp = {
   fieldId: string
   fieldName: string
   fieldRouteName: string

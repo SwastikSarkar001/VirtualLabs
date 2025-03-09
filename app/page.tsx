@@ -1,7 +1,7 @@
 import Footer from "./ui/Footer";
 import HeroSection from "./HeroSection";
 import Navbar from "./ui/Navbar";
-// import LearningSpheres from "./LearningSpheres";
+import LearningSpheres from "./LearningSpheres";
 import ParticipatingInstitutes from "./ParticipatingInstitutes";
 import VideoSection from "./VideoSection";
 
@@ -10,7 +10,7 @@ export default function Home() {
     <main className="flex flex-col items-stretch font-body">
       <Navbar />
       <HeroSection />
-      {/* <LearningSpheres /> */}
+      <LearningSpheres />
       <ParticipatingInstitutes />
       <VideoSection />
       <Footer />

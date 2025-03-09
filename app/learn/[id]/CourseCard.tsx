@@ -1,15 +1,15 @@
 "use client"
 
 import type { CourseProp } from "@/data/data"
-import { toggleFavorite } from "./course-actions"
+import { toggleFavorite } from "./course-actions"  //eslint-disable-line
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
 export default function CourseCard({ course }: { course: CourseProp }) {
   const [imgSrc, setImgSrc] = useState(course.courseImage.src)
-  const [isFavorite, setIsFavorite] = useState(course.courseFavourite)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(course.courseFavourite)  //eslint-disable-line
+  const [isLoading, setIsLoading] = useState(false)  //eslint-disable-line
 
   // const handleFavoriteToggle = async () => {
   //   setIsLoading(true)
