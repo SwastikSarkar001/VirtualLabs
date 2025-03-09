@@ -1,7 +1,7 @@
 import { IoCaretDown } from "react-icons/io5"
 import { IoMdHeart } from "react-icons/io"
 import { FaArrowRotateLeft } from "react-icons/fa6"
-import Navbar from "@/app/ui/Navbar"
+import Navbar from "@/ui/basic/Navbar"
 
 export default function Loading() {
   return (

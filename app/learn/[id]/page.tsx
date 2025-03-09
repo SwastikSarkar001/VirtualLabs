@@ -1,5 +1,5 @@
-import Footer from "@/app/ui/Footer"
-import Navbar from "@/app/ui/Navbar"
+import Footer from "@/ui/basic/Footer"
+import Navbar from "@/ui/basic/Navbar"
 import { subjects } from "@/data/data"
 import { notFound } from "next/navigation"
 import { IoCaretDown } from "react-icons/io5"

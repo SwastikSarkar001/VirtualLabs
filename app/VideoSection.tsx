@@ -1,7 +1,7 @@
 'use client';
 
 import { Space_Mono } from "next/font/google";
-import TextScramble from "./ui/TextScramble";
+import TextScramble from "../ui/basic/TextScramble";
 // import TextScramble from "@/bin/text-scramble";
 // import { TextScrambleProvider } from "@/bin/text-scramble-context";
 
