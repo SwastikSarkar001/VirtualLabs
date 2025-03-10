@@ -1,9 +1,9 @@
 import Footer from "@/ui/basic/Footer";
 import Navbar from "@/ui/basic/Navbar";
-import { BarChart } from "@/ui/charts/BarCharts";
+import { BarChart } from "@/ui/graphs/BarChart";
 import { courseMetrics, disciplineMetrics, instituteMetrics } from "@/data/metrics";
-import { PieChart } from "@/ui/charts/PieCharts";
-import { LineChart } from "@/ui/charts/LineCharts";
+import { PieChart } from "@/ui/graphs/PieChart";
+import { LineChart } from "@/ui/graphs/LineChart";
 
 const colors = [
   "#00BFFF",
@@ -17,11 +17,18 @@ const colors = [
   "#FF5252"
 ]
 
+export function generateMetadata() {
+  return {
+    title: "Summary | Virtual Labs",
+    description: "Summary of user engagement with Virtual Labs"
+  }
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col items-stretch font-body min-h-screen">
       <Navbar />
-      <section className="mt-16 mx-4 sm:mx-8 md:mx-16 xl:mx-16 flex flex-col gap-4 flex-grow">
+      <section className="mt-24 mx-4 sm:mx-8 md:mx-16 xl:mx-16 flex flex-col gap-4 flex-grow">
         <div className="mb-4">
           <h1 className="text-4xl mb-1 font-bold text-center">Summary</h1>
           <h2 className="text-xl text-center text-gray-400">(January 2020 - Present)</h2>

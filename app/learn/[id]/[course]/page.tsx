@@ -3,6 +3,23 @@ import Navbar from "@/ui/basic/Navbar"
 import courses from "@/data/data"
 import { notFound } from "next/navigation"
 
+export async function generateMetadata({ params }: { params: Promise<{ course: string }> }) {
+  const { course } = await params
+  const courseData = courses.find((courseData) => courseData.courseRouteUrl.includes(course))
+
+  if (!courseData) {
+    return {
+      title: "Not Found | Virtual Labs",
+      description: "This page does not exist",
+    }
+  }
+
+  return {
+    title: `${courseData.courseName} | Virtual Labs`,
+    description: `Learn ${courseData.courseName} with Virtual Labs`,
+  }
+}
+
 export default async function Page({ params }: { params: Promise<{ course: string }>}) {
   const { course } = await params
   const courseData = courses.find((courseData) => courseData.courseRouteUrl.includes(course))

@@ -110,8 +110,8 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
   const subOptions = {
     learn: subjects.map((subject) => ({ label: subject.fieldName, href: `/learn/${subject.fieldRouteName}` })),
     about: [
-      { label: "VLeads", href: "/about/vleads" },
-      { label: "Virtual Labs", href: "/about/virtual-labs" },
+      { label: "VLead", href: "/vlead" },
+      { label: "Virtual Labs", href: "/vlabs" },
     ],
     activities: [
       { label: "Create Experiment", href: "/activities/experiments" },
@@ -285,7 +285,6 @@ function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab
     </li>
   );
 }
-
 
 function Cursor({ position }: { position: { top: number; width: number; opacity: number } }) {
   return (
