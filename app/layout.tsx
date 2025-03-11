@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 
-
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -21,10 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`antialiased min-h-screen text-foreground bg-background ${roboto.variable}`}
-        
-      >
+      <body className={`antialiased min-h-screen text-foreground bg-background ${roboto.variable}`}>
         {children}
       </body>
     </html>

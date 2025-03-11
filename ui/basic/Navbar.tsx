@@ -8,9 +8,26 @@ import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { subjects } from "@/data/data";
 
-export default function Navbar() {
+// Module-level flag (resets on full page reload)
+let navbarHasAnimated = false;
+
+export default function Navbar({ position = 'sticky' }: { position?: 'sticky' | 'fixed' }) {
+  // On mount, if navbarHasAnimated is false, animate; otherwise, skip the initial animation.
+  const [shouldAnimate, setShouldAnimate] = useState<boolean>(!navbarHasAnimated);
+
+  useEffect(() => {
+    if (!navbarHasAnimated) {
+      setShouldAnimate(true);
+      navbarHasAnimated = true;
+    }
+  }, []);
   return (
-    <nav className="self-center backdrop-blur-xl bg-indigo-950/50 sticky flex items-center justify-between top-10 w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8">
+    <motion.nav
+      className={`self-center backdrop-blur-xl bg-indigo-950/50 ${position} flex items-center justify-between top-10 w-[85%] z-50 rounded-full border-2 border-fuchsia-400/30 p-4 sm:px-8`}
+      initial={shouldAnimate ? { y: -100 } : false}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
       <Explore />
       <Link href="/" className='flex gap-2 items-center'>
         <PiFlaskFill className="size-[1.3em] text-violet-400" />
@@ -21,7 +38,7 @@ export default function Navbar() {
           <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
         </svg>
       </button>
-    </nav>
+    </motion.nav>
   )
 }
 

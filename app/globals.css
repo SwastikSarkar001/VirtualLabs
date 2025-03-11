@@ -37,3 +37,7 @@
 .scrollbar-hide {
   scrollbar-width: none;
 }
+
+@utility link-hover {
+  @apply relative after:absolute after:h-0.5 after:-bottom-1 after:inset-x-0 after:bg-background after:rounded-full hover:after:rounded-full after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in hover:after:ease-out;
+}

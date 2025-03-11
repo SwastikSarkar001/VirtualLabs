@@ -37,6 +37,7 @@ export default function Home() {
             { dataKey: 'views', name: 'Page Views', color: 'hsl(221, 83%, 53%)' }
           ]}
           xAxisKey="shortName"
+          yAxisUnit="M"
           title="Page Views and Number of Users of each Institutes"
           description="This bar chart displays the number of users and page views for each institute, providing a clear comparison of user engagement across different institutes."
           height={300}
@@ -81,6 +82,7 @@ export default function Home() {
             { dataKey: "views", name: "Page Views", color: "hsl(221, 83%, 53%)" },
           ]}
           xAxisKey="courseName"
+          yAxisUnit="M"
           title="Top 10 Courses by Users and Page Views"
           description="This line chart displays the number of users and page views for the top 10 courses, providing insights into the popularity of different courses."
           height={350}

@@ -27,6 +27,7 @@ interface LineChartProps {
   xAxisKey: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   xAxisFormatter?: (value: any) => string
+  yAxisUnit?: string
   title?: string
   description?: string
   className?: string
@@ -40,6 +41,7 @@ export function LineChart({
   lines,
   xAxisKey,
   xAxisFormatter,
+  yAxisUnit,
   title,
   description,
   className = "",
@@ -63,10 +65,16 @@ export function LineChart({
             tick={{ fill: "var(--foreground)", fontSize: 12 }}
             dy={10}
           />
-          <YAxis tickLine={false} axisLine={false} tick={{ fill: "var(--foreground)", fontSize: 12 }} dx={-10} />
+          <YAxis 
+            tickLine={false} 
+            axisLine={false} 
+            tick={{ fill: "var(--foreground)", fontSize: 12 }} 
+            dx={-10}
+            unit={yAxisUnit ? `${yAxisUnit}` : undefined}
+          />
           <Tooltip
             content={({ active, payload, label }: TooltipProps<any, any>) => (  // eslint-disable-line @typescript-eslint/no-explicit-any
-              <ChartTooltip active={active} payload={payload} label={label} />
+              <ChartTooltip active={active} payload={payload} label={label} unit={yAxisUnit} />
             )}
           />
           {showLegend && (
@@ -89,4 +97,3 @@ export function LineChart({
     </ChartContainer>
   )
 }
-

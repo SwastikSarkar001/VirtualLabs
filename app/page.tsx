@@ -8,7 +8,7 @@ import VideoSection from "./VideoSection";
 export default function Home() {
   return (
     <main className="flex flex-col items-stretch font-body">
-      <Navbar />
+      <Navbar position="fixed" />
       <HeroSection />
       <LearningSpheres />
       <ParticipatingInstitutes />

@@ -1,8 +1,8 @@
 "use client"
 
 import {
-  Bar,
-  BarChart as RechartsBarChart,
+  Area,
+  AreaChart as RechartsAreaChart,
   CartesianGrid,
   Legend,
   ResponsiveContainer,
@@ -15,13 +15,14 @@ import {
 import { ChartContainer } from "./ChartContainer"
 import { ChartTooltip } from "./ChartTooltip"
 
-interface BarChartProps {
+interface AreaChartProps {
   data: any[]  // eslint-disable-line @typescript-eslint/no-explicit-any
-  bars: {
+  areas: {
     dataKey: string
     name: string
     color: string
-    radius?: number
+    fillOpacity?: number
+    strokeWidth?: number
   }[]
   xAxisKey: string
   xAxisFormatter?: (value: any) => string  // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -35,9 +36,9 @@ interface BarChartProps {
   stacked?: boolean
 }
 
-export function BarChart({
+export function AreaChart({
   data,
-  bars,
+  areas,
   xAxisKey,
   xAxisFormatter,
   yAxisUnit,
@@ -48,11 +49,11 @@ export function BarChart({
   showLegend = true,
   height = 300,
   stacked = false,
-}: BarChartProps) {
+}: AreaChartProps) {
   return (
     <ChartContainer title={title} description={description} className={className}>
       <ResponsiveContainer width="100%" height={height}>
-        <RechartsBarChart
+        <RechartsAreaChart
           data={data}
           margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
         >
@@ -76,22 +77,24 @@ export function BarChart({
             content={({ active, payload, label }: TooltipProps<any, any>) => (  // eslint-disable-line @typescript-eslint/no-explicit-any
               <ChartTooltip active={active} payload={payload} label={label} unit={yAxisUnit} />
             )}
-            cursor={{ fill: "#777", opacity: 0.1 }}
           />
           {showLegend && (
             <Legend verticalAlign="top" height={36} iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12 }} />
           )}
-          {bars.map((bar) => (
-            <Bar
-              key={bar.dataKey}
-              dataKey={bar.dataKey}
-              name={bar.name}
-              fill={bar.color}
-              radius={bar.radius || 4}
+          {areas.map((area) => (
+            <Area
+              key={area.dataKey}
+              type="monotone"
+              dataKey={area.dataKey}
+              name={area.name}
+              stroke={area.color}
+              fill={area.color}
+              fillOpacity={area.fillOpacity || 0.2}
+              strokeWidth={area.strokeWidth || 2}
               stackId={stacked ? "stack" : undefined}
             />
           ))}
-        </RechartsBarChart>
+        </RechartsAreaChart>
       </ResponsiveContainer>
     </ChartContainer>
   )

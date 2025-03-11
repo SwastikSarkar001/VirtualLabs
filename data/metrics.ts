@@ -139,52 +139,52 @@ type CourseMetricsType = {
 export const courseMetrics: CourseMetricsType[] = [
   {
     courseName: 'Machine Learning',
-    users: 1600000,
-    views: 6500000
+    users: 1600000/1000000,
+    views: 6500000/1000000
   },
   {
     courseName: 'Data Structures and Algorithms',
-    users: 1500000,
-    views: 6000000
+    users: 1500000/1000000,
+    views: 6000000/1000000
   },
   {
     courseName: 'Digital Signal Processing',
-    users: 1200000,
-    views: 4500000
+    users: 1200000/1000000,
+    views: 4500000/1000000
   },
   {
     courseName: 'Quantum Mechanics',
-    users: 1100000,
-    views: 4400000
+    users: 1100000/1000000,
+    views: 4400000/1000000
   },
   {
     courseName: 'Thermodynamics',
-    users: 950000,
-    views: 3800000
+    users: 950000/1000000,
+    views: 3800000/1000000
   },
   {
     courseName: 'Power Systems',
-    users: 900000,
-    views: 3600000
+    users: 900000/1000000,
+    views: 3600000/1000000
   },
   {
     courseName: 'Organic Chemistry',
-    users: 850000,
-    views: 3400000
+    users: 850000/1000000,
+    views: 3400000/1000000
   },
   {
     courseName: 'Microbiology',
-    users: 800000,
-    views: 3200000
+    users: 800000/1000000,
+    views: 3200000/1000000
   },
   {
     courseName: 'Chemical Reaction Engineering',
-    users: 780000,
-    views: 3100000
+    users: 780000/1000000,
+    views: 3100000/1000000
   },
   {
     courseName: 'Structural Analysis',
-    users: 700000,
-    views: 2800000
+    users: 700000/1000000,
+    views: 2800000/1000000
   }
 ]

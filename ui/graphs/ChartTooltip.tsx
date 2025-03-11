@@ -7,9 +7,10 @@ interface ChartTooltipProps extends Partial<TooltipProps<any, any>> {
   active?: boolean
   payload?: any[]  // eslint-disable-line @typescript-eslint/no-explicit-any
   label?: string
+  unit?: string
 }
 
-export function ChartTooltip({ active, payload, label }: ChartTooltipProps) {
+export function ChartTooltip({ active, payload, label, unit }: ChartTooltipProps) {
   if (!active || !payload || !payload.length) return null
 
   return (
@@ -20,7 +21,10 @@ export function ChartTooltip({ active, payload, label }: ChartTooltipProps) {
           <div key={index} className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full" style={{ backgroundColor: item.color }} />
             <span className="text-xs font-medium">{item.name}:</span>
-            <span className="text-xs">{item.value}</span>
+            <span className="text-xs">
+              {item.value}
+              {unit ? `${unit}` : ""}
+            </span>
           </div>
         ))}
       </div>

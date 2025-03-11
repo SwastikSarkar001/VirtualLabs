@@ -40,11 +40,12 @@ export default function Home() {
             { dataKey: 'views', name: 'Page Views', color: 'hsl(142, 71%, 45%)' }
           ]}
           xAxisKey="shortName"
+          yAxisUnit="M"
           title="Page Views and Number of Users of each Institutes"
           description="This bar chart displays the number of users and page views for each institute, providing a clear comparison of user engagement across different institutes."
           height={300}
           className="mb-4 border-gray-300/40 rounded-xl md:px-8 md:py-6"
-        />
+          />
         <PieChart
           data={
             disciplineMetrics.map((discipline, index) => ({
@@ -84,6 +85,7 @@ export default function Home() {
             { dataKey: "views", name: "Page Views", color: "hsl(142, 71%, 45%)" },
           ]}
           xAxisKey="courseName"
+          yAxisUnit="M"
           title="Top 10 Courses by Users and Page Views"
           description="This line chart displays the number of users and page views for the top 10 courses, providing insights into the popularity of different courses."
           height={350}

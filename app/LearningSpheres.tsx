@@ -4,6 +4,8 @@ import { FieldProp, subjects } from "@/data/data"
 import Link from "next/link"
 import { LuMoveLeft, LuMoveRight, LuMoveUpRight } from "react-icons/lu";
 import { useRef } from "react";
+import AnimatedSection from "@/ui/basic/AnimatedSection";
+import { motion, Variants } from "framer-motion";
 
 export default function LearningSpheres() {
   const scrollableRef = useRef<HTMLDivElement>(null);
@@ -29,48 +31,61 @@ export default function LearningSpheres() {
     'from-cyan-300 via-cyan-500 to-cyan-400',
     'from-teal-300 via-teal-500 to-teal-400',
   ]
+  
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <section className="flex flex-col items-stretch gap-16 py-16 px-8">
-      <div className="flex items-center justify-between gap-3 sm:gap-6">
-        <h1 className="text-3xl sm:text-4xl self-center font-bold">Learning Spheres</h1>
-        <div className="flex gap-3 sm:gap-6 items-center">
-          <button aria-label="Scroll left" onClick={handleScrollLeft} className="p-3 sm:p-4 rounded-full transition-colors text-foreground border-foreground border-2 bg-background disabled:invert hover:text-background hover:border-background hover:bg-foreground">
-            <LuMoveLeft className="stroke-3" />
-          </button>
-          <button aria-label="Scroll right" onClick={handleScrollRight} className="p-3 sm:p-4 rounded-full transition-colors text-foreground border-foreground border-2 bg-background hover:text-background hover:border-background hover:bg-foreground">
-            <LuMoveRight className="stroke-3" />
-          </button>
+      <AnimatedSection>
+        <div className="flex items-center justify-between gap-3 sm:gap-6">
+          <h1 className="text-3xl sm:text-4xl self-center font-bold">Learning Spheres</h1>
+          <div className="flex gap-3 sm:gap-6 items-center">
+            <button aria-label="Scroll left" onClick={handleScrollLeft} className="p-3 sm:p-4 rounded-full transition-colors text-foreground border-foreground border-2 bg-background disabled:invert hover:text-background hover:border-background hover:bg-foreground">
+              <LuMoveLeft className="stroke-3" />
+            </button>
+            <button aria-label="Scroll right" onClick={handleScrollRight} className="p-3 sm:p-4 rounded-full transition-colors text-foreground border-foreground border-2 bg-background hover:text-background hover:border-background hover:bg-foreground">
+              <LuMoveRight className="stroke-3" />
+            </button>
+          </div>
         </div>
-      </div>
-      <div ref={scrollableRef} className="scrollbar-hide overflow-x-scroll scroll-smooth snap-x snap-mandatory">
-        <div className="flex items-stretch *:shrink-0 gap-8">
-          {
-            subjects.map((subject, index) => (
-              <Card key={subject.fieldId} subject={subject} bgcolor={colors[index%colors.length]} />
-            ))
-          }
+      </AnimatedSection>
+      <AnimatedSection staggerChildren={0.1}>
+        <div ref={scrollableRef} className="scrollbar-hide overflow-x-scroll scroll-smooth snap-x snap-mandatory">
+          <div className="flex items-stretch gap-8">
+            {subjects.map((subject, index) => (
+              // Wrap each card in a motion.div to use the parent's variants
+              <motion.div
+                key={subject.fieldId}
+                variants={cardVariants}
+                className="snap-start"
+              >
+                <Card subject={subject} bgcolor={colors[index % colors.length]} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   )
 }
 
 function Card({ subject, bgcolor }: { subject: FieldProp, bgcolor: string }) {
   return (
-    <div className={`w-60 text-background bg-linear-to-bl ${bgcolor} px-6 py-6 rounded-xl flex flex-col gap-6 snap-start`}>
+    <div className={`w-60 h-full text-background bg-linear-to-bl ${bgcolor} px-6 py-6 rounded-xl flex flex-col gap-6`}>
       <h2 className="text-xl mb-auto">{subject.fieldName}</h2>
-      <p className="text-sm text-gray-700 line-clamp-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat architecto ipsa, blanditiis laudantium saepe id sunt ducimus quis aliquam numquam, molestias quas quasi praesentium similique. Quaerat explicabo nobis blanditiis illum.</p>
+      <p className="text-sm text-gray-700 line-clamp-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat architecto ipsa, blanditiis laudantium saepe id sunt ducimus quis aliquam numquam, molestias quas quasi praesentium similique.
+      </p>
       <svg aria-hidden width="89" height="7" viewBox="0 0 89 7" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='currentColor'>
         <path d="M1 3.51678C16.8594 -5.17697 14.266 12.1434 30 3.51678" strokeWidth="2"/>
         <path d="M59 3.51678C74.8594 -5.17697 72.266 12.1434 88 3.51678" strokeWidth="2"/>
         <path d="M30 3.51678C45.8594 -5.17697 43.266 12.1434 59 3.51678" strokeWidth="2"/>
       </svg>
-      <div className="border-t-2 pt-6">
-        <Link
-          className="w-max text-sm flex items-center gap-2 text-gray-700 relative after:absolute after:h-0.5 after:-bottom-1 after:inset-x-0 after:bg-gray-700 after:rounded-full hover:after:rounded-full after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in hover:after:ease-out"
-          href={`/learn/${subject.fieldRouteName}`}
-        >
+      <div className="border-t-2 pt-5">
+        <Link href={`/learn/${subject.fieldRouteName}`} className="w-max text-sm flex items-center gap-2 link-hover">
           <div>Learn More</div>
           <LuMoveUpRight className="size-[1.2em]" />
         </Link>

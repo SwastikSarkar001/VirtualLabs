@@ -14,7 +14,7 @@ export default function Footer() {
           </Link>
           <div className="not-lg:text-center">
             <p>Engineering and Architecture Division</p>
-            <p>Room No:B5-203,</p>
+            <p>Room No: B5-203,</p>
             <p>Vindhya C6, VLEAD,</p>
             <p>IIIT-H, Gachibowli,</p>
             <p>Hyderabad - 500032</p>
