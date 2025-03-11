@@ -74,7 +74,7 @@ export default function ParticipatingInstitutes() {
         <h1 className={`text-4xl self-center text-center font-bold ${montserrat.className}`}>Participating Institutes</h1>
       </AnimatedSection>
       <AnimatedSection>
-        <InfiniteLogoSlider  logos={logos} speed={1} />
+        <InfiniteLogoSlider  logos={logos} speed={6} />
       </AnimatedSection>
     </section>
   )
