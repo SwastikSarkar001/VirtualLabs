@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { subjects } from "@/data/data";
+import Dialog, { DialogBody, DialogContent, DialogHeader, DialogTrigger } from "./Dialog";
 
 // Module-level flag (resets on full page reload)
 let navbarHasAnimated = false;
@@ -29,15 +30,11 @@ export default function Navbar({ position = 'sticky' }: { position?: 'sticky' | 
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >
       <Explore />
-      <Link href="/" className='flex gap-2 items-center'>
-        <PiFlaskFill className="size-[1.3em] text-violet-400" />
-        <div>Virtual Labs</div>
+      <Link href="/" className='flex gap-2 items-center group transition-colors hover:text-fuchsia-400'>
+        <PiFlaskFill className="size-[1.3em] text-violet-400 group-hover:text-fuchsia-400" />
+        <div className="">Virtual Labs</div>
       </Link>
-      <button className="cursor-pointer flex gap-1.5 text-sm items-center transition-colors rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
-      </button>
+      <Search />
     </motion.nav>
   )
 }
@@ -102,7 +99,7 @@ type ExploreOverlayProps = {
   setActiveTab: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps) {
+function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps) {
   const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({
     top: 0,
@@ -132,7 +129,7 @@ export function ExploreOverlay({ activeTab, setActiveTab }: ExploreOverlayProps)
     ],
     activities: [
       { label: "Create Experiment", href: "/activities/experiments" },
-      { label: "Host Workshop", href: "/activities/workshops" },
+      { label: "Outreach", href: "/activities/outreach" },
       { label: "Explore Research", href: "/activities/researches" },
     ],
     analytics: [
@@ -310,4 +307,78 @@ function Cursor({ position }: { position: { top: number; width: number; opacity:
       className="absolute z-0 rounded-full bg-violet-500 h-11 pointer-events-none"
     />
   );
+}
+
+function Search() {
+  const [search, setSearch] = useState('');
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+      <button aria-label="Open Search" className="cursor-pointer flex gap-1.5 text-sm items-center transition-colors rounded-full text-foreground hover:text-fuchsia-400">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+      </button>
+      </DialogTrigger>
+      <DialogContent className="font-body md:h-4/5 md:aspect-square not-md:size-full">
+        <DialogHeader className="!text-2xl mb-2">
+          Search
+        </DialogHeader>
+        <DialogBody>
+          <SearchText id='Search Bar' label='Search Virtual Labs' data={search} changeData={e => setSearch(e.target.value)} />
+        </DialogBody>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+type InputProps = {
+  /** The input data. */
+  data: string
+  /** The label for the input. */
+  label: string
+  /** The id of the checkbox. */
+  id: string,
+  /** The name of the input. */
+  name?: string
+  /** Function to handle input changes. */
+  changeData: (e: React.ChangeEvent<HTMLInputElement>) => void
+  /** Whether the input is required. */
+  required?: boolean
+  /** The pattern to validate the input. */
+  pattern?: string
+  /** The suggestions to be displayed in the input. */
+  suggestions?: string[]
+  /** Add classname in the input element */
+  inputClassName?: React.HTMLAttributes<HTMLInputElement>['className']
+}
+
+/** Renders a text input with an id, label. */
+export function SearchText({ label, id, name, inputClassName, data, changeData, required, pattern, suggestions }: InputProps) {
+  return (
+    <label htmlFor={ id } className="bg-gray-300/20 invalid:bg-red-300/20 p-4 rounded-2xl flex items-center gap-4">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+      <input
+        type="text"
+        id={ id }
+        name={ name }
+        className={`bg-transparent min-w-0 grow outline-hidden shrink${inputClassName? ' ' + inputClassName : ''}`}
+        placeholder={ label }
+        value={ data }
+        onChange={ changeData }
+        pattern={ pattern }
+        required={ required }
+        list={ suggestions ? `${id}-list` : undefined }
+      />
+      {suggestions && (
+        <datalist id={`${id}-list`}>
+          {suggestions.map((suggestion, index) => (
+            <option key={index} value={suggestion} />
+          ))}
+        </datalist>
+      )}
+    </label>
+  )
 }
