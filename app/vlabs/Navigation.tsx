@@ -30,6 +30,23 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
     }
   }, [activeTab]);
 
+  useEffect(() => {
+    const resize = () => {
+      const activeTabRef = tabRefs.current[activeTab];
+      if (activeTabRef) {
+        const { width } = activeTabRef.getBoundingClientRect();
+        setPosition({
+          left: activeTabRef.offsetLeft,
+          width
+        });
+      }
+    };
+    window.addEventListener('resize', resize);
+    return () => {
+      window.removeEventListener('resize', resize);
+    };
+  }, [activeTab]);
+
   // Handler for when mouse leaves the nav area
   const handleNavMouseLeave = () => {
     const activeTabRef = tabRefs.current[activeTab];
