@@ -2,6 +2,13 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-montserrat-font",
+});
 
 type FAQType = {
   question: string
@@ -237,8 +244,8 @@ export default function FAQSection() {
   }
   return (
     <div>
-      <h1 className="text-4xl mb-12 font-bold text-center">Frequently Asked Questions (FAQs)</h1>
-      <div className="mb-16">
+      <h1 className={`text-4xl mb-12 font-bold text-center py-5 ${montserrat.className}`}>Frequently Asked Questions (FAQs)</h1>
+      <div className="mb-16 mx-20">
         {
           faqs.map((faq, index) => (
             <Accordion key={index} index={index} qa={faq} openIndex={openIndex} toggleAccordion={toggleAccordion} />

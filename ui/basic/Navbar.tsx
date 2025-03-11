@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { subjects } from "@/data/data";
 
+
 // Module-level flag (resets on full page reload)
 let navbarHasAnimated = false;
 
@@ -285,13 +286,13 @@ function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab
             animate={{ opacity: 1, y: -2 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="hidden absolute -top-2 left-[110%] w-80 mt-2 z-20 rounded shadow-lg p-2 sm:flex flex-col gap-2"
+            className=" absolute -top-2 left-[110%] w-80 mt-2 z-20 rounded shadow-lg p-2 flex flex-col gap-2"
           >
             {subOptions.map((option) => (
               <Link
                 key={option.href}
                 href={option.href}
-                className="hover:underline"
+                className= {`hover:underline py-2`}
               >
                 {option.label}
               </Link>

@@ -7,6 +7,13 @@ import { IoMdHeart } from "react-icons/io"
 import { FaArrowRotateLeft } from "react-icons/fa6"
 import { Suspense } from "react"
 import CourseGrid from "./CourseGrid"
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-montserrat-font",
+});
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -37,7 +44,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     <main className="flex flex-col items-stretch font-body gap-8 min-h-screen">
       <Navbar />
       <section className="mt-16 flex flex-col gap-4 flex-grow">
-        <h1 className="text-4xl font-bold text-center">Learn {subject.fieldName}</h1>
+        <h1 className={`text-4xl font-bold text-center py-5 ${montserrat.className}`}>Learn {subject.fieldName}</h1>
         <div className="flex flex-wrap items-center justify-between px-4 md:px-16 pt-8">
           <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-0">
             <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-3 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
