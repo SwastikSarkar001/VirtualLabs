@@ -8,6 +8,7 @@ import { FaArrowRotateLeft } from "react-icons/fa6"
 import { Suspense } from "react"
 import CourseGrid from "./CourseGrid"
 import { Montserrat } from "next/font/google";
+import { RiFilter2Fill } from "react-icons/ri";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -59,6 +60,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
               <div>Recent</div>
               <FaArrowRotateLeft />
             </div>
+          </div>
+          <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-2 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
+            <div>Filter</div>
+            <RiFilter2Fill />
           </div>
         </div>
         <Suspense fallback={<CourseGridSkeleton />}>
