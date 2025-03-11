@@ -48,7 +48,7 @@ export default function LearningSpheres() {
     <section className="flex flex-col items-stretch gap-16 py-16 px-8">
       <AnimatedSection>
         <div className="flex items-center justify-between gap-3 sm:gap-6">
-          <h1 className="text-3xl sm:text-4xl self-center font-bold">Learning Spheres</h1>
+          <h1 className={`text-3xl sm:text-4xl self-center font-bold ${montserrat.className}`}>Learning Spheres</h1>
           <div className="flex gap-3 sm:gap-6 items-center">
             <button aria-label="Scroll left" onClick={handleScrollLeft} className="p-3 sm:p-4 rounded-full transition-colors text-foreground border-foreground border-2 bg-background disabled:invert hover:text-background hover:border-background hover:bg-foreground">
               <LuMoveLeft className="stroke-3" />
