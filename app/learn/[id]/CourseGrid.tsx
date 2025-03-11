@@ -1,9 +1,7 @@
 import courses from "@/data/data"
 import CourseCard from "./CourseCard"
 
-// Simulate a delay to show the loading state
 async function getCourses(id: string) {
-  // This artificial delay helps demonstrate the loading state
   await new Promise((resolve) => setTimeout(resolve, 1500))
   return courses.filter((course) => course.courseField.fieldRouteName === id)
 }

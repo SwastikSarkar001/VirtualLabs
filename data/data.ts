@@ -183,7 +183,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-sciences-introduction'
   },
   {
-    courseId: 'CHE802',
+    courseId: 'CHE901',
     courseName: 'Chemical Engineering Basics',
     courseDescription: 'Fundamentals of chemical engineering.',
     courseField: subjects[8],
@@ -309,7 +309,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/organic-chemistry'
   },
   {
-    courseId: 'CHE803',
+    courseId: 'CHE902',
     courseName: 'Process Engineering',
     courseDescription: 'Introduction to process engineering and its applications.',
     courseField: subjects[8],
@@ -435,7 +435,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/inorganic-chemistry'
   },
   {
-    courseId: 'CHE804',
+    courseId: 'CHE903',
     courseName: 'Chemical Process Control',
     courseDescription: 'Introduction to chemical process control and instrumentation.',
     courseField: subjects[8],
@@ -561,7 +561,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/analytical-chemistry'
   },
   {
-    courseId: 'CHE805',
+    courseId: 'CHE904',
     courseName: 'Polymer Engineering',
     courseDescription: 'Introduction to polymer engineering and its applications.',
     courseField: subjects[8],
@@ -687,7 +687,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-reaction-engineering'
   },
   {
-    courseId: 'CHE806',
+    courseId: 'CHE905',
     courseName: 'Petroleum Engineering',
     courseDescription: 'Introduction to petroleum engineering and its applications.',
     courseField: subjects[8],
@@ -813,7 +813,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/physical-chemistry'
   },
   {
-    courseId: 'CHE807',
+    courseId: 'CHE906',
     courseName: 'Chemical Plant Design',
     courseDescription: 'Introduction to chemical plant design and operations.',
     courseField: subjects[8],
@@ -939,7 +939,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-thermodynamics'
   },
   {
-    courseId: 'CHE808',
+    courseId: 'CHE907',
     courseName: 'Chemical Safety Engineering',
     courseDescription: 'Introduction to chemical safety engineering and regulations.',
     courseField: subjects[8],
@@ -1065,7 +1065,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-kinetics'
   },
   {
-    courseId: 'CHE809',
+    courseId: 'CHE908',
     courseName: 'Food Processing Engineering',
     courseDescription: 'Introduction to food processing engineering and technologies.',
     courseField: subjects[8],
@@ -1191,7 +1191,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-separation-processes'
   },
   {
-    courseId: 'CHE810',
+    courseId: 'CHE909',
     courseName: 'Corrosion Engineering',
     courseDescription: 'Study of corrosion engineering principles and applications.',
     courseField: subjects[8],
@@ -1317,7 +1317,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-process-design'
   },
   {
-    courseId: 'CHE811',
+    courseId: 'CHE910',
     courseName: 'Biochemical Engineering',
     courseDescription: 'Study of biochemical engineering principles and applications.',
     courseField: subjects[8],
@@ -1443,7 +1443,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-engineering-thermodynamics'
   },
   {
-    courseId: 'CHE812',
+    courseId: 'CHE911',
     courseName: 'Chemical Process Control',
     courseDescription: 'Introduction to chemical process control systems and applications.',
     courseField: subjects[8],
@@ -1569,7 +1569,7 @@ const courses: CourseProp[] = [
     courseRouteUrl: '/learn/chemical-science/chemical-reaction-engineering'
   },
   {
-    courseId: 'CHE813',
+    courseId: 'CHE912',
     courseName: 'Chemical Plant Operations',
     courseDescription: 'Study of chemical plant operations and safety procedures.',
     courseField: subjects[8],

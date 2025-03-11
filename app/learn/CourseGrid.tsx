@@ -1,20 +1,18 @@
 import courses from "@/data/data"
 import CourseCard from "./CourseCard"
 
-// Simulate a delay to show the loading state
-async function getCourses(id: string) {
-  // This artificial delay helps demonstrate the loading state
+async function getCourses() {
   await new Promise((resolve) => setTimeout(resolve, 1500))
-  return courses.filter((course) => course.courseField.fieldRouteName === id)
+  return courses
 }
 
-export default async function CourseGrid({ id }: { id: string }) {
-  const filteredCourses = await getCourses(id)
+export default async function CourseGrid() {
+  const allCourses = await getCourses()
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-16 p-4 md:p-16 pt-8">
-      {filteredCourses.length > 0 ? (
-        filteredCourses.map((course) => <CourseCard key={course.courseId} course={course} />)
+      {allCourses.length > 0 ? (
+        allCourses.map((course) => <CourseCard key={course.courseId} course={course} />)
       ) : (
         <div className="col-span-full text-center py-16">
           <h3 className="text-2xl font-semibold">No courses found</h3>

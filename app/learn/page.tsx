@@ -1,7 +1,11 @@
 import Footer from "@/ui/basic/Footer"
 import Navbar from "@/ui/basic/Navbar"
 import { Suspense } from "react"
-// import CourseGrid from "./[id]/CourseGrid"
+import { FaArrowRotateLeft } from "react-icons/fa6"
+import { IoMdHeart } from "react-icons/io"
+import { IoCaretDown } from "react-icons/io5"
+import { RiFilter2Fill } from "react-icons/ri"
+import CourseGrid from "./CourseGrid"
 
 export function generateMetadata() {
   return {
@@ -15,11 +19,31 @@ export default function Home() {
     <main className="flex flex-col items-stretch font-body gap-8 min-h-screen">
       <Navbar />
       <section className="mt-16 flex flex-col gap-4 flex-grow">
-        <h1 className="text-4xl font-bold text-center">Learn Virtual labs</h1>
+        <h1 className="text-4xl font-bold text-center">Explore Experiments</h1>
+        <div className="flex flex-wrap items-center justify-between px-4 md:px-16 pt-8">
+          <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-0">
+            <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-3 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
+              <div>Sort By</div>
+              <IoCaretDown />
+            </div>
+            <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-3 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
+              <div>Favorites</div>
+              <IoMdHeart />
+            </div>
+            <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-3 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
+              <div>Recent</div>
+              <FaArrowRotateLeft />
+            </div>
+          </div>
+          <div className="px-4 py-2 border-2 border-foreground rounded-full flex items-center gap-2 cursor-pointer hover:bg-foreground hover:border-background hover:text-background transition-colors">
+            <div>Filter</div>
+            <RiFilter2Fill />
+          </div>
+        </div>
+        <Suspense fallback={<CourseGridSkeleton />}>
+          <CourseGrid />
+        </Suspense>
       </section>
-      <Suspense fallback={<CourseGridSkeleton />}>
-        {/* <CourseGrid id={id} /> */}
-      </Suspense>
       <Footer />
     </main>
   )
