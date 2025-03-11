@@ -63,11 +63,16 @@ export default function Dialog({ children, onOpen, onClose }: React.PropsWithChi
 }
 
 export function DialogOverlay({ onClick }: { onClick: () => void }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const context = useContext(DialogContext);
   if (!context) {
     throw new Error("DialogOverlay must be used within a Dialog");
   }
   const { open } = context;
+  if (!mounted) return null;
   return createPortal(
     <AnimatePresence>
       {open && (
