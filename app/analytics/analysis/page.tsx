@@ -4,6 +4,13 @@ import { BarChart } from "@/ui/graphs/BarChart";
 import { courseMetrics, disciplineMetrics, instituteMetrics } from "@/data/metrics";
 import { PieChart } from "@/ui/graphs/PieChart";
 import { LineChart } from "@/ui/graphs/LineChart";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-montserrat-font",
+});
 
 const colors = [
   "#AEEA00",
@@ -29,7 +36,7 @@ export default function Home() {
     <main className="flex flex-col items-stretch font-body min-h-screen">
       <Navbar />
       <section className="mt-24 mx-4 sm:mx-8 md:mx-16 xl:mx-16 flex flex-col gap-4 flex-grow">
-        <h1 className="text-4xl mb-4 font-bold text-center">Detailed Analysis</h1>
+        <h1 className={`text-4xl mb-4 font-bold text-center ${montserrat.className}`}>Detailed Analysis</h1>
         <BarChart
           data={instituteMetrics}
           bars={[

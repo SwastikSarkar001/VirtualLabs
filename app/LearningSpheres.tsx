@@ -1,11 +1,18 @@
 'use client'
 
+import { Montserrat } from "next/font/google";
 import { FieldProp, subjects } from "@/data/data"
 import Link from "next/link"
 import { LuMoveLeft, LuMoveRight, LuMoveUpRight } from "react-icons/lu";
 import { useRef } from "react";
 import AnimatedSection from "@/ui/basic/AnimatedSection";
 import { motion, Variants } from "framer-motion";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-montserrat-font",
+});
 
 export default function LearningSpheres() {
   const scrollableRef = useRef<HTMLDivElement>(null);
