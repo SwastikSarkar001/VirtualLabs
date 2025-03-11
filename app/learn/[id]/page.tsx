@@ -61,7 +61,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             </div>
           </div>
         </div>
-
         <Suspense fallback={<CourseGridSkeleton />}>
           <CourseGrid id={id} />
         </Suspense>

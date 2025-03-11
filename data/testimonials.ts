@@ -1,4 +1,4 @@
-type TestimonialType = {
+export type TestimonialType = {
   name: string
   institute: string
   testimonial: string
