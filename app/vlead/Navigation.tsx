@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { idType } from "./ViewableSection";
-import { GrOverview } from "react-icons/gr";
+import { MdTimeline } from "react-icons/md";
 import { GoGoal } from "react-icons/go";
-import { BiSolidSchool } from "react-icons/bi";
+import { GiTeamUpgrade } from "react-icons/gi";
+import { GiTeamDowngrade } from "react-icons/gi";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { FaInfo } from "react-icons/fa";
 
@@ -68,54 +69,64 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
       onMouseLeave={handleNavMouseLeave}
     >
       <Tab
-        tooltip='Overview'
-        tabId='Overview'
+        tooltip='Motivation'
+        tabId='Motivation'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Overview'] = el}
-      >
-        <GrOverview />
-        <div>Overview</div>
-      </Tab>
-      <Tab
-        tooltip='Goals and Philosophy'
-        tabId='Goals'
-        setActiveTab={setActiveTab}
-        setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Goals'] = el}
+        registerRef={(el) => tabRefs.current['Motivation'] = el}
       >
         <GoGoal />
-        <div>Goals and Philosophy</div>
+        <div>Motivation</div>
       </Tab>
       <Tab
-        tooltip='Participating Institutes'
-        tabId='Institutes'
+        tooltip='Initiatives'
+        tabId='Initiatives'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Institutes'] = el}
+        registerRef={(el) => tabRefs.current['Initiatives'] = el}
       >
-        <BiSolidSchool />
-        <div>Participating Institutes</div>
+        <FaInfo />
+        <div>Initatives</div>
+      </Tab>
+      <Tab
+        tooltip='Timeline'
+        tabId='Timeline'
+        setActiveTab={setActiveTab}
+        setPosition={setPosition}
+        registerRef={(el) => tabRefs.current['Timeline'] = el}
+      >
+        <MdTimeline  />
+        <div>Timeline</div>
+      </Tab>
+      <Tab
+        tooltip='Current Team'
+        tabId='CurrentTeam'
+        setActiveTab={setActiveTab}
+        setPosition={setPosition}
+        registerRef={(el) => tabRefs.current['CurrentTeam'] = el}
+      >
+        <GiTeamUpgrade />
+        <div>Current Team</div>
+      </Tab>
+      <Tab
+        tooltip='Past Team'
+        tabId='PastTeam'
+        setActiveTab={setActiveTab}
+        setPosition={setPosition}
+        registerRef={(el) => tabRefs.current['PastTeam'] = el}
+      >
+        <GiTeamDowngrade />
+        <div>Past Team</div>
       </Tab>
       <Tab
         tooltip='Testimonials'
-        tabId='Testimonials'
+        tabId='TestimonialSection'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Testimonials'] = el}
+        registerRef={(el) => tabRefs.current['TestimonialSection'] = el}
       >
         <BiSolidQuoteLeft />
         <div>Testimonials</div>
-      </Tab>
-      <Tab
-        tooltip='FAQ'
-        tabId='FAQ'
-        setActiveTab={setActiveTab}
-        setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['FAQ'] = el}
-      >
-        <FaInfo />
-        <div>FAQ</div>
       </Tab>
       <Cursor position={position} />
     </motion.nav>

@@ -53,7 +53,7 @@ const montserrat = Montserrat({
   weight: ["400", "700"],
   variable: "--font-montserrat-font",
 });
-export default function OverviewSection() {
+export default function Motivation() {
   return (
     <div>
       <h1 className={`text-4xl mb-8 font-bold text-center py-5 ${montserrat.className}`}>Virtual Labs Engineering Architecture and Design</h1>
