@@ -1,4 +1,4 @@
-// import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 // import clientPromise, { dbname } from "@/lib/mongodb";
 // import { SubjectProp, CourseProp } from "../../types";
 // import { CourseProp as CoursePropData } from "@/data/data";
@@ -39,3 +39,11 @@
 //     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
 //   }
 // }
+
+export async function GET(request: Request, { params }: { params: Promise<{ course: string }> }) {
+  const { course } = await params;
+  return NextResponse.json(
+    {message: 'Hello, world!' + course},
+    {status: 200}
+  );
+}
