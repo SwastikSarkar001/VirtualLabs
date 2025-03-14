@@ -20,37 +20,39 @@ export default function NodeSection() {
 
 function TOC() {
   return (
-    <aside className='shrink-0 bg-stone-900 p-4 border border-gray-200 rounded hidden md:block md:w-60 xl:w-80 sticky top-30 h-max mb-16'>
-      <h2 className="text-xl font-semibold mb-2">Table of Contents</h2>
-      <ul className="space-y-2">
-        <li><Link href='#introduction' className="toc-link">Introduction</Link></li>
-        <li><Link href='#purpose' className="toc-link">Purpose</Link></li>
-        <li><Link href='#target-audience' className="toc-link">Target Audience</Link></li>
-        <li><Link href='#define' className="toc-link">What is Node Center?</Link></li>
-        <li><Link href='#affiliation' className="toc-link">What is the Nodal Center affiliated With?</Link></li>
-        <li><Link href='#benifits' className="toc-link">What are the benefits of being a Nodal Center?</Link></li>
-        <li><Link href='#roles' className="toc-link">What are the roles and responsibilities of the Nodal Center?</Link></li>
-        <li>
-          <Link href='#how-to' className="toc-link">How to Become a Nodal Centre?</Link>
-          <ul className="ml-2 pl-2 border-l border-gray-400 space-y-1 mt-1 text-sm">
-            <li><Link href='#how-to-enroll' className="toc-link">New Enrollment of Nodal Center</Link></li>
-            <li><Link href='#how-to-re-enroll' className="toc-link">Re-Enrollment of Nodal Center</Link></li>
-          </ul>
-        </li>
-        <li><Link href='#coordinator' className="toc-link">Who is Nodal Center Coordinator (NCC)?</Link></li>
-        <li><Link href='#responsibilities' className="toc-link">What are the responsibilities of the Nodal Center Coordinator?</Link></li>
-        <li><Link href='#steps' className="toc-link">Step-by-Step Guide to become a Nodal Center</Link></li>
-        <li><Link href='#agenda' className="toc-link">What is the agenda of the workshop?</Link></li>
-        <li><Link href='#links' className="toc-link">Some important links</Link></li>
-        <li><Link href='#testimonials' className="toc-link">Testimonials from IIIT-H Nodal Centers</Link></li>
-        <li>
-          <Link href='#definitions' className="toc-link">Definitions</Link>
-          <ul className="ml-2 pl-2 border-l border-gray-400 space-y-1 mt-1 text-sm">
-            <li><Link href='#usage' className="toc-link">Usage</Link></li>
-            <li><Link href='#workshop' className="toc-link">Workshop</Link></li>
-          </ul>
-        </li>
-      </ul>
+    <aside className='shrink-0 max-h-1/2 overflow-y-auto bg-stone-900 p-4 border border-gray-200 rounded hidden md:block md:w-60 xl:w-80 sticky top-30 h-max mb-16'>
+      <div>
+        <h2 className="text-xl font-semibold mb-2">Table of Contents</h2>
+        <ul className="space-y-2">
+          <li><Link href='#introduction' className="toc-link">Introduction</Link></li>
+          <li><Link href='#purpose' className="toc-link">Purpose</Link></li>
+          <li><Link href='#target-audience' className="toc-link">Target Audience</Link></li>
+          <li><Link href='#define' className="toc-link">What is Node Center?</Link></li>
+          <li><Link href='#affiliation' className="toc-link">What is the Nodal Center affiliated With?</Link></li>
+          <li><Link href='#benifits' className="toc-link">What are the benefits of being a Nodal Center?</Link></li>
+          <li><Link href='#roles' className="toc-link">What are the roles and responsibilities of the Nodal Center?</Link></li>
+          <li>
+            <Link href='#how-to' className="toc-link">How to Become a Nodal Centre?</Link>
+            <ul className="ml-2 pl-2 border-l border-gray-400 space-y-1 mt-1 text-sm">
+              <li><Link href='#how-to-enroll' className="toc-link">New Enrollment of Nodal Center</Link></li>
+              <li><Link href='#how-to-re-enroll' className="toc-link">Re-Enrollment of Nodal Center</Link></li>
+            </ul>
+          </li>
+          <li><Link href='#coordinator' className="toc-link">Who is Nodal Center Coordinator (NCC)?</Link></li>
+          <li><Link href='#responsibilities' className="toc-link">What are the responsibilities of the Nodal Center Coordinator?</Link></li>
+          <li><Link href='#steps' className="toc-link">Step-by-Step Guide to become a Nodal Center</Link></li>
+          <li><Link href='#agenda' className="toc-link">What is the agenda of the workshop?</Link></li>
+          <li><Link href='#links' className="toc-link">Some important links</Link></li>
+          <li><Link href='#testimonials' className="toc-link">Testimonials from IIIT-H Nodal Centers</Link></li>
+          <li>
+            <Link href='#definitions' className="toc-link">Definitions</Link>
+            <ul className="ml-2 pl-2 border-l border-gray-400 space-y-1 mt-1 text-sm">
+              <li><Link href='#usage' className="toc-link">Usage</Link></li>
+              <li><Link href='#workshop' className="toc-link">Workshop</Link></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </aside>
   )
 }
@@ -87,14 +89,14 @@ function Content() {
       <h3 id='how-to-enroll' className={`${ montserrat.className } blog-h3`}>New Enrollment of Nodal Center</h3>
       <p>The institute that has never been an NC before, submits the Expression of Interest (EOI) form to any of the consortium institutes and will be considered for enrollment as a new NC. Once the institute enrolled as an NC, the following will be the targets:</p>
       <ul className="list-disc pl-5 mb-4">
-        <li><Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/edit/main/nodal-centre-process/nodal-centre-process.md#workshop' className="text-blue-400 hover:underline" passHref>Workshops</Link> - A minimum of 1 workshop during the one-year of enrollment.</li>
-        <li><Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/edit/main/nodal-centre-process/nodal-centre-process.md#usage' className="text-blue-400 hover:underline" passHref>Usages</Link> - A minimum usage of 8000 per year from all the workshops and other classroom use of Virtual Labs.</li>
+        <li><span className="font-bold">Workshops</span> - A minimum of 1 workshop during the one-year of enrollment.</li>
+        <li><span className="font-bold">Usages</span> - A minimum usage of 8000 per year from all the workshops and other classroom use of Virtual Labs.</li>
       </ul>
       <h3 id='how-to-re-enroll' className={`${ montserrat.className } blog-h3`}>Re-Enrollment of Nodal Center</h3>
       <p>The institute that has been an NC before can submit a fresh Expression of Interest (EOI) form and will be considered for re-enrollment as an NC for one year. Once the institute re-enrolled as an NC, the following will be the targets:</p>
       <ul className="list-disc pl-5 mb-8">
-        <li><Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/edit/main/nodal-centre-process/nodal-centre-process.md#workshop' className="text-blue-400 hover:underline" passHref>Workshops</Link> - A minimum of 1 workshop per year during the one year of enrollment.</li>
-        <li><Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/edit/main/nodal-centre-process/nodal-centre-process.md#usage' className="text-blue-400 hover:underline" passHref>Usages</Link> - A minimum usage of 8000 per year from all the workshops and other classroom use of Virtual Labs during enrollment.</li>
+        <li><span className="font-bold">Workshops</span> - A minimum of 1 workshop per year during the one year of enrollment.</li>
+        <li><span className="font-bold">Usages</span> - A minimum usage of 8000 per year from all the workshops and other classroom use of Virtual Labs during enrollment.</li>
       </ul>
       <h2 id='coordinator' className={`${ montserrat.className } blog-h2`}>Who is Nodal Center Coordinator (NCC)?</h2>
       <p className="mb-8">Nodal Center Coordinator (NCC) will be nominated from each NC by the head of the institute. The NCC will submit all the reports periodically to the Virtual Labs team of the respective institute.</p>
@@ -115,8 +117,8 @@ function Content() {
         <li>Submit an <Link href='http://38.100.110.143/EOI-2023.pdf' className="text-blue-400 hover:underline" passHref>expression of interest</Link> document, duly completed and signed by the head of your institute, to the chosen consortium institution.</li>
         <li>Approach the Principal Investigator (PI) to discuss the possibility of conducting a workshop at your institute&apos;s premises.</li>
         <li>Anticipate the contact of the Virtual Labs Outreach Team within a period of 5-10 business days. Subsequent communication shall be conducted via email.</li>
-        <li>The mode (<Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/blob/main/workshop-process/workshop-process.md#requirements-for-online-workshop' className="text-blue-400 hover:underline" passHref>online</Link> or <Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/blob/main/workshop-process/workshop-process.md#requirements-for-onsite-version' className="text-blue-400 hover:underline" passHref>onsite</Link>) for the workshop shall be determined through mutual agreement on a suitable date.</li>
-        <li>Following the completion of the online or onsite workshop, the necessary documents(<Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/blob/main/workshop-process/workshop-process.md#documents-to-be-submitted-for-online-workshop' className="text-blue-400 hover:underline" passHref>online</Link>/<Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/blob/main/workshop-process/workshop-process.md#documents-to-be-submitted-for-onsite-workshop' className="text-blue-400 hover:underline" passHref>onsite</Link>) related to the workshop&apos;s execution should be submitted to the PI.</li>
+        <li>The mode (<Link href='/activities/outreach?section=Workshops#requirements-online-workshop' className="text-blue-400 hover:underline" passHref>online</Link> or <Link href='/activities/outreach?section=Workshops#requirements-onsite' className="text-blue-400 hover:underline" passHref>onsite</Link>) for the workshop shall be determined through mutual agreement on a suitable date.</li>
+        <li>Following the completion of the online or onsite workshop, the necessary documents(<Link href='/activities/outreach?section=Workshops#docs-online' className="text-blue-400 hover:underline" passHref>online</Link> / <Link href='/activities/outreach?section=Workshops#docs-onsite' className="text-blue-400 hover:underline" passHref>onsite</Link>) related to the workshop&apos;s execution should be submitted to the PI.</li>
         <li>Once the workshop-related documentation has been submitted and reviewed, an Appointment letter will be issued to your Nodal center as appropriate.</li>
       </ul>
       <h2 id='agenda' className={`${ montserrat.className } blog-h2`}>What is the agenda of the workshop?</h2>
@@ -131,12 +133,12 @@ function Content() {
       <h2 id='links' className={`${ montserrat.className } blog-h2`}>Some important links</h2>
       <ul className="list-disc pl-5 mb-8">
         <li>Attendance sheet: <Link href='https://drive.google.com/file/d/1rIaKjPTh6I4wY_6223b3JgQq476sDeSU/view?usp=drive_link' className="text-blue-400 hover:underline" passHref>Link</Link></li>
-        <li>Feedback form: <Link href='https://docs.google.com/document/d/1jJl33IG2edS0JHFtsxqwcn9Q-gf3i-dI/edit?usp=drive_link&ouid=106961684070023821907&rtpof=true&sd=true' className="text-blue-400 hover:underline" passHref>Link</Link></li>
-        <li>Report template: <Link href='https://docs.google.com/document/d/1In2LNqduLoLLFOHTzKrbibLuXm7kcIVm/edit?usp=drive_link&ouid=106961684070023821907&rtpof=true&sd=true' className="text-blue-400 hover:underline" passHref>Link</Link></li>
+        <li>Feedback form: <Link href='https://docs.google.com/document/d/1jJl33IG2edS0JHFtsxqwcn9Q-gf3i-dI/edit?usp=drive_link' className="text-blue-400 hover:underline" passHref>Link</Link></li>
+        <li>Report template: <Link href='https://docs.google.com/document/d/1In2LNqduLoLLFOHTzKrbibLuXm7kcIVm/edit?usp=drive_link' className="text-blue-400 hover:underline" passHref>Link</Link></li>
         <li>Expression of Interest: <Link href='http://38.100.110.143/EOI-2023.pdf' className="text-blue-400 hover:underline" passHref>Link</Link></li>
       </ul>
       <h2 id='testimonials' className={`${ montserrat.className } blog-h2`}>Testimonials from IIIT-H Nodal Centers</h2>
-      <p>You can check out some of the anecdotes provided by our Nodal center coordinators by referring to this <Link href='https://github.com/virtual-labs/outreach-web-pages-iiith/blob/main/testimonials/outreach-testimonials.md#testimonials-from-iiit-h-nodal-centers' className="text-blue-400 hover:underline" passHref>link</Link>.</p>
+      <p className="mb-8">You can check out some of the anecdotes provided by our Nodal center coordinators by referring to this <Link href='/activities/outreach?section=Testimonials' className="text-blue-400 hover:underline" passHref>link</Link>.</p>
       <h2 id='definitions' className={`${ montserrat.className } blog-h2`}>Definitions</h2>
       <h3 id='usage' className={`${ montserrat.className } blog-h3`}>Usage</h3>
       <p className="mb-4">A single usage consists of a student or faculty member doing a Virtual Lab experiment through a workshop or in regular classroom use. The faculty member holding the workshop is responsible for certifying that a student has done the experiment. As part of attending a workshop, a student will submit a feedback form that lists the number of experiments that the student has done in that workshop.</p>

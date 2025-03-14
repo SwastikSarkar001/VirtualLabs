@@ -69,104 +69,111 @@ const faqs: FAQType[] = [
     )
   },
   {
-    question: 'Our college internet network has firewalls. Should any specific care be taken?',
-    answer: () => (
-      <p>
-        If Internet network operates behind a firewall, the communication ports to facilitate VLab network traffic should be open. Specifically ports 3306, 5900, 5902, and 8700 will need to be opened.
-      </p>
-    )
-  },
-  {
-    question: 'Does the Virtual Lab provide the LMS that the objectives mention?',
-    answer: () => (
-      <p>
-        Virtual Lab project provides a complete Leaning Management System. For most users, Virtual Lab provides all the relevant material at one place including the Objectives of the Experiment, Procedure, Lab manual, Pre- and Post-experiment quizzes, additional Lab resources, in addition to the Virtual Lab experiment. Most labs also have an associated question bank.
-      </p>
-    )
-  },
-  {
-    question: 'How do I register for using the Virtual Labs?',
+    question: 'What are the other requirements for a Onsite Virtual Labs Workshop?',
     answer: () => (
       <div>
-        <p>As mentioned earlier, Virtual Labs are divided into two categories: simulation based labs and remote triggered labs. Registration requirements are different for the two categories.</p>
+        <p>For a Virtual Labs workshop to be conducted, your college/institute would have to meet the following requirements:</p>
         <ul className="list-disc pl-5">
           <li>
-            <span className="font-bold">Simulation Based Virtual Labs:</span> All labs can be directly accessed by following the lab links on the web page.
+            The <Link href='http://vlab.co.in/' className="text-blue-400 hover:underline" passHref>Virtual Labs</Link> web page should be accessible from the browser.
           </li>
           <li>
-            <span className="font-bold">Remote Triggered Virtual Labs:</span> To access a remote triggered lab, a user has to book a slot. For booking a slot, you have to register yourself first and then book a slot from the slot chart. All the available /booked slots can be viewed on this chart. Once a request for slot-booking is made, all the information regarding the user id, password and the slot booked will be sent to the user’s email address provided by the user at the time of registration. Once registered, a user can login using the same credentials every time. This registration has to be done by the user separately for each of the remote triggered virtual labs.
+            The college/institute should be a Central/State University or institute/college approved by AICTE/UGC.
+          </li>
+          <li>
+            For onsite workshops, the college/institute must have an auditorium with a seating capacity of at least 100 and a designated/common lab space having 35 PCs or more.
           </li>
         </ul>
       </div>
     )
   },
   {
-    question: 'I already have a Physical Lab in my college/institute. What benefit will Virtual Lab provide?',
+    question: 'What are the system requirements for an Online Virtual Lab Workshop?',
+    answer: () => (
+      <div>
+        <p>For an Online Virtual Labs workshop to be conducted, your college/institute would have to meet the following system requirements:</p>
+        <ul className="list-disc pl-5">
+          <li>
+            The institute should be a Central/State University or institute/college approved by AICTE/UGC.
+          </li>
+          <li>
+            Each participant should have access to a reliable Internet connection or link.
+          </li>
+          <li>
+            Browser: Firefox and Chrome.
+          </li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    question: 'How can I request for a workshop to be conducted at my college?',
+    answer: () => (
+      <div>
+        <p>Ensure that all requirements are satisfied:</p>
+        <ul className="list-disc pl-5">
+          <li>
+            Complete the Expression of Interest form and send the duly filled or scanned form to ioc-iiith@vlabs.ac.in.
+          </li>
+          <li>
+            Await contact from the Virtual Labs Outreach Team.
+          </li>
+          <li>
+            Suggest 2-3 convenient dates for the workshop.
+          </li>
+          <li>
+            Upon receipt of the form, the Virtual Labs Outreach Team will organize the online or in-person workshop on the agreed-upon date.
+          </li>
+        </ul>
+      </div>
+    )
+  },
+  {
+    question: 'What would be covered in the workshop?',
     answer: () => (
       <p>
-        Virtual Lab is a complete Learning Management System. All the relevant information including the theory, lab-manual, additional web-resources, video-lectures, animated demonstrations and self-evaluation are available at a common place. Virtual Labs can be used in a complementary fashion to augment the efficacy of theory-based lectures. Small projects can also be carried out using some of the Virtual Labs. Virtual Labs can be effectively used to give lab-demonstrations to large classes.
+        An overview of Virtual Labs, demo and hands-on of two Virtual Labs experiments will be covered during the workshop.
       </p>
     )
   },
   {
-    question: 'How does one derive the maximum benefit from Virtual Labs?',
+    question: 'Does my college have to pay for the workshops?',
     answer: () => (
       <p>
-        In order to derive maximum learning experience, the users are advised to first read all the instructions for conducting the labs. There are &apos;step-by-step&apos; instructions available in each lab to assist the users.
+        College/Institute will have to pay for the travel, lodging and boarding for two Virtual Labs representatives for an Onsite Workshop. Online workshops will not incur any expenditure for the college/institute.
       </p>
     )
   },
   {
-    question: 'When I do an experiment how do I know if the experiment I did is done correctly?',
+    question: 'Where can I get support on Virtual Labs Workshops?',
+    answer: () => (
+      <p>You can get help on workshops and other Virtual Labs related issues by posting on the mailing list for engineers contributing to Virtual Labs. You may <Link href='https://groups.google.com/a/vlabs.ac.in/g/engineers?pli=1' className="text-blue-400 hover:underline" passHref>Subscribe/Unsubscribe to the engineers</Link> mailing list. You can also post your queries to the <Link href='https://currents.google.com/u/1/communities/104131148292250423165' className="text-blue-400 hover:underline" passHref>teacher&apos;s community.</Link></p>
+    )
+  },
+  {
+    question: 'What are the terms and conditions for using Virtual Labs in your college?',
     answer: () => (
       <div>
-        <p>Virtual Labs will provide to the students the result of an experiment by one of the following methods (or possibly a combination):</p>
-        <ol className="list-decimal pl-5">
+        <p>There is no financial liability on any party for using Virtual Labs. It is free to use.</p>
+        <ul className="list-disc pl-5">
           <li>
-            Modelling the physical phenomenon by a set of equations and carrying out simulations to yield the result of the particular experiment.
+            The Institute/College cannot charge students for the use of Virtual Labs.
           </li>
           <li>
-            Providing a corresponding measurement data for the Virtual Lab experiment based previously carried out measurements on an actual system.
+          The institute/college must nominate a single point of contact for all logistical and technical coordination between the institute and Virtual Labs.
           </li>
-          <li>
-            Remotely triggering an experiment in an actual lab and providing the student the result of the experiment through the computer interface.
-          </li>
-        </ol>
+        </ul>
       </div>
     )
   },
   {
-    question: 'How can a college conduct a Virtual Lab Workshop?',
+    question: 'Where have the Virtual Labs workshops been conducted?',
     answer: () => (
       <div>
-        For details, please follow the <Link href='http://iiith.vlabs.ac.in/workshops.html' className="text-blue-400 hover:underline" passHref>link</Link>.
+        Please follow the <Link href='https://outreach.vlabs.ac.in/nc' className="text-blue-400 hover:underline" passHref>link</Link> to view the list of colleges where Virtual Labs Workshops have been conducted.
       </div>
     )
   },
-  {
-    question: 'Whom can I contact if I get stuck while using Virtual Labs?',
-    answer: () => (
-      <div>
-        You can email your concerns/queries to the Virtual Labs team at <Link href='mailto:poc-vlead@vlabs.ac.in' className="text-blue-400 hover:underline" passHref>support@vlabs.ac.in</Link>.
-      </div>
-    )
-  },
-  {
-    question: 'How can I contribute to the FAQ?',
-    answer: () => (
-      <div>
-        Drop a mail to <Link href='mailto:poc-vlead@vlabs.ac.in' className="text-blue-400 hover:underline" passHref>support@vlabs.ac.in</Link> with Questions (and Answers).
-      </div>
-    )
-  },
-  {
-    question: 'How can I contribute to Virtual Labs?',
-    answer: () => (
-      <div>
-        vlabs-dev is the main portal for Virtual Labs Development. Please visit the <Link href='http://vlabs-dev.vlabs.ac.in/community/contributing.html' className="text-blue-400 hover:underline" passHref>contributing section</Link> of the <Link href='http://vlabs-dev.vlabs.ac.in/' className="text-blue-400 hover:underline" passHref>vlabs-dev</Link> portal.
-      </div>
-    )
-  }
 ]
 
 export default function FAQSection() {

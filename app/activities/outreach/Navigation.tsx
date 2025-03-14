@@ -1,31 +1,23 @@
-'use client'
+// Navigation.tsx
+'use client';
 
-import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { idType } from "./ViewableSection";
-import { GrGallery, GrWorkshop } from "react-icons/gr";
-import { TbBuildingPlus } from "react-icons/tb";
-import { BiSolidQuoteLeft } from "react-icons/bi";
-import { FaInfo } from "react-icons/fa";
+import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { idType } from './ViewableSection';
+import { GrGallery, GrWorkshop } from 'react-icons/gr';
+import { TbBuildingPlus } from 'react-icons/tb';
+import { BiSolidQuoteLeft } from 'react-icons/bi';
+import { FaInfo } from 'react-icons/fa';
 
-export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: React.Dispatch<React.SetStateAction<idType>> }) {
-  const [position, setPosition] = useState({
-    left: 0,
-    width: 0,
-  })
-
-  // Create a ref map for tabs to store their DOM references
+export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: (tab: idType) => void }) {
+  const [position, setPosition] = useState({ left: 0, width: 0 });
   const tabRefs = useRef<{ [key in idType]?: HTMLDivElement }>({});
 
-  // Update cursor position when activeTab changes
   useEffect(() => {
     const activeTabRef = tabRefs.current[activeTab];
     if (activeTabRef) {
       const { width } = activeTabRef.getBoundingClientRect();
-      setPosition({
-        left: activeTabRef.offsetLeft,
-        width
-      });
+      setPosition({ left: activeTabRef.offsetLeft, width });
     }
   }, [activeTab]);
 
@@ -34,27 +26,18 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
       const activeTabRef = tabRefs.current[activeTab];
       if (activeTabRef) {
         const { width } = activeTabRef.getBoundingClientRect();
-        setPosition({
-          left: activeTabRef.offsetLeft,
-          width
-        });
+        setPosition({ left: activeTabRef.offsetLeft, width });
       }
     };
     window.addEventListener('resize', resize);
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
+    return () => window.removeEventListener('resize', resize);
   }, [activeTab]);
 
-  // Handler for when mouse leaves the nav area
   const handleNavMouseLeave = () => {
     const activeTabRef = tabRefs.current[activeTab];
     if (activeTabRef) {
       const { width } = activeTabRef.getBoundingClientRect();
-      setPosition({
-        left: activeTabRef.offsetLeft,
-        width
-      });
+      setPosition({ left: activeTabRef.offsetLeft, width });
     }
   };
 
@@ -63,7 +46,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
       className="fixed bottom-8 lg:bottom-16 w-max mx-auto z-2 bg-stone-900 flex not-lg:gap-4 border-2 items-center justify-between py-px px-1 rounded-full"
       initial={{ y: 150 }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       onMouseLeave={handleNavMouseLeave}
     >
       <Tab
@@ -71,7 +54,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         tabId='Gallery'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Gallery'] = el}
+        registerRef={(el) => (tabRefs.current['Gallery'] = el)}
       >
         <GrGallery />
         <div>Gallery</div>
@@ -81,7 +64,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         tabId='Workshops'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Workshops'] = el}
+        registerRef={(el) => (tabRefs.current['Workshops'] = el)}
       >
         <GrWorkshop />
         <div>Workshops</div>
@@ -91,7 +74,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         tabId='Nodes'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Nodes'] = el}
+        registerRef={(el) => (tabRefs.current['Nodes'] = el)}
       >
         <TbBuildingPlus />
         <div>Node Centers</div>
@@ -101,7 +84,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         tabId='Testimonials'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['Testimonials'] = el}
+        registerRef={(el) => (tabRefs.current['Testimonials'] = el)}
       >
         <BiSolidQuoteLeft />
         <div>Testimonials</div>
@@ -111,27 +94,27 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         tabId='FAQ'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => tabRefs.current['FAQ'] = el}
+        registerRef={(el) => (tabRefs.current['FAQ'] = el)}
       >
         <FaInfo />
         <div>FAQ</div>
       </Tab>
       <Cursor position={position} />
     </motion.nav>
-  )
+  );
 }
 
 type TabType = React.PropsWithChildren<{
   setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number }>>;
   tabId: idType;
-  setActiveTab: React.Dispatch<React.SetStateAction<idType>>;
+  setActiveTab: (tab: idType) => void;
   registerRef: (el: HTMLDivElement) => void;
-  tooltip: string
-}>
+  tooltip: string;
+}>;
 
 function Tab({ children, tabId, setPosition, setActiveTab, tooltip, registerRef }: TabType) {
   const divRef = useRef<HTMLDivElement>(null);
-  // On mount, register the ref with the parent
+
   useEffect(() => {
     if (divRef.current) {
       registerRef(divRef.current);
@@ -141,14 +124,13 @@ function Tab({ children, tabId, setPosition, setActiveTab, tooltip, registerRef 
   const getPos = () => {
     if (divRef.current) {
       const { width } = divRef.current.getBoundingClientRect();
-      setPosition({
-        left: divRef.current.offsetLeft,
-        width
-      });
+      setPosition({ left: divRef.current.offsetLeft, width });
     }
-  }
+  };
+
   const handleClick = () => setActiveTab(tabId);
   const handleMouseEnter = () => getPos();
+
   return (
     <div
       ref={divRef}
@@ -161,7 +143,7 @@ function Tab({ children, tabId, setPosition, setActiveTab, tooltip, registerRef 
         {tooltip || tabId}
       </div>
     </div>
-  )
+  );
 }
 
 function Cursor({ position }: { position: { left: number; width: number } }) {
