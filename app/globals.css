@@ -22,12 +22,18 @@
   /* scrollbar-gutter: stable; */
 }
 
-* {
-  /* width */
-  &::-webkit-scrollbar {
-    width: 0.5rem !important;
+@layer {
+  * {
+    /* width */
+    &::-webkit-scrollbar {
+      width: 0.5rem !important;
+    }
+    scrollbar-width: thin;
   }
-  scrollbar-width: thin;
+
+  html {
+    @apply scroll-smooth;
+  }
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -40,4 +46,16 @@
 
 @utility link-hover {
   @apply relative after:absolute after:h-0.5 after:-bottom-1 after:inset-x-0 after:bg-background after:rounded-full hover:after:rounded-full after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in hover:after:ease-out;
+}
+
+@utility blog-h2 {
+  @apply scroll-mt-32 text-2xl pb-2 border-b-2 border-gray-300/30 font-medium mb-4;
+}
+
+@utility blog-h3 {
+  @apply scroll-mt-32 text-xl pb-2 font-medium mb-2;
+}
+
+@utility toc-link {
+  @apply text-gray-400 hover:text-foreground transition hover:underline;
 }

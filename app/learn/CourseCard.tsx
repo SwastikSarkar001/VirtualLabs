@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useState } from "react"
 
 export default function CourseCard({ course }: { course: CourseProp }) {
-  const [imgSrc, setImgSrc] = useState(course.courseImage.src)
+  // const [imgSrc, setImgSrc] = useState(course.courseImage.src)
   const [isFavorite, setIsFavorite] = useState(course.courseFavourite)  //eslint-disable-line
   const [isLoading, setIsLoading] = useState(false)  //eslint-disable-line
 
@@ -82,11 +82,19 @@ export default function CourseCard({ course }: { course: CourseProp }) {
         <Image
           width={200}
           height={200}
+          src='/dummy-course.webp'
+          alt={course.courseImage.alt}
+          className="object-cover transition-transform duration-300 hover:scale-110"
+        />
+        { /* Uncomment when there will be image data for them */ }
+        {/* <Image
+          width={200}
+          height={200}
           src={imgSrc}
           alt={course.courseImage.alt}
           className="object-cover transition-transform duration-300 hover:scale-110"
           onError={() => setImgSrc("/dummy-course.webp")}
-        />
+        /> */}
       </div>
       <div className="flex flex-col gap-2 mt-auto w-full">
         <h2 className="text-xl font-bold mb-2">{course.courseName}</h2>

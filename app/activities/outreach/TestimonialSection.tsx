@@ -1,14 +1,19 @@
-import { testimonials, TestimonialType } from "@/data/testimonials"
+import { outreachTestimonials, OutreachTestimonialType } from "@/data/testimonials"
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { Montserrat } from "next/font/google"
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+});
 
 export default function TestimonialSection() {
   return (
     <div>
-      <h1 className="text-4xl mb-16 font-bold text-center">
+      <h1 className={`text-4xl mb-16 font-bold text-center ${montserrat.className}`}>
         Testimonials
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-16 justify-items-center mb-16">
-        {testimonials.map((testimonial, index) => (
+      <div className="grid grid-cols-1 gap-8 md:gap-16 justify-items-center mb-16">
+        {outreachTestimonials.map((testimonial, index) => (
           <Testimonial key={index} testimonial={testimonial} />
         ))}
       </div>
@@ -16,7 +21,7 @@ export default function TestimonialSection() {
   )
 }
 
-function Testimonial({ testimonial }: { testimonial: TestimonialType }) {
+function Testimonial({ testimonial }: { testimonial: OutreachTestimonialType }) {
   return (
     <div className="p-0.5 rounded-2xl bg-linear-0 from-zinc-500 to-gray-800/50 relative overflow-hidden">
       <div className="absolute size-60 rounded-full bg-violet-500/70 -translate-1/2 left-1/2 -z-1 blur-xl" />
@@ -28,7 +33,7 @@ function Testimonial({ testimonial }: { testimonial: TestimonialType }) {
         </p>
         <div className="self-end text-right">
           <h2 className="font-semibold">— {testimonial.name}</h2>
-          <p className="text-sm">{testimonial.institute}</p>
+          <p className="text-sm">{testimonial.designation}</p>
         </div>
       </div>
     </div>
