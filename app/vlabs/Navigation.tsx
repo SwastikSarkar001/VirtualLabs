@@ -9,7 +9,7 @@ import { BiSolidSchool } from "react-icons/bi";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { FaInfo } from "react-icons/fa";
 
-export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: React.Dispatch<React.SetStateAction<idType>> }) {
+export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: (tab: idType) => void }) {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -125,7 +125,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
 type TabType = React.PropsWithChildren<{
   setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number }>>;
   tabId: idType;
-  setActiveTab: React.Dispatch<React.SetStateAction<idType>>;
+  setActiveTab: (tab: idType) => void;
   registerRef: (el: HTMLDivElement) => void;
   tooltip: string
 }>

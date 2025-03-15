@@ -29,6 +29,7 @@
       width: 0.5rem !important;
     }
     scrollbar-width: thin;
+    color-scheme: dark;
   }
 
   html {

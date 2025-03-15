@@ -6,8 +6,9 @@ import { PiFlaskFill } from "react-icons/pi";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { subjects } from "@/data/data";
+import courses, { subjects } from "@/data/data";
 import Dialog, { DialogBody, DialogContent, DialogHeader, DialogTrigger } from "./Dialog";
+import { MdChevronRight } from "react-icons/md";
 
 
 // Module-level flag (resets on full page reload)
@@ -310,8 +311,49 @@ function Cursor({ position }: { position: { top: number; width: number; opacity:
   );
 }
 
+type SearchProps = {
+  id: string,
+  title: string,
+  link: string
+}
+
 function Search() {
   const [search, setSearch] = useState('');
+  const isSearchEmpty = search === ''
+  const [allData, setAllData] = useState<SearchProps[]>([])
+
+  useEffect(() => {
+    subjects.map(subject => {
+      setAllData(prev => {
+        const newData = [...prev];
+        newData.push({
+          id: subject.fieldId,
+          title: subject.fieldName,
+          link: '/learn/'+subject.fieldRouteName
+        });
+        return newData;
+      })
+    })
+
+    courses.map(course => {
+      setAllData(prev => {
+        const newData = [...prev]
+        newData.push({
+          id: course.courseId,
+          title: course.courseName,
+          link: course.courseRouteUrl
+        })
+        return newData
+      })
+    })
+  }, [])
+
+  const filteredSearch = allData.filter(data => 
+    data.id.toLowerCase().includes(search.toLowerCase()) ||
+    data.title.toLowerCase().includes(search.toLowerCase()) ||
+    data.link.toLowerCase().includes(search.toLowerCase())
+  ).slice(0, 10)
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -321,12 +363,15 @@ function Search() {
         </svg>
       </button>
       </DialogTrigger>
-      <DialogContent className="font-body md:h-4/5 md:aspect-square not-md:size-full">
+      <DialogContent className="font-body md:h-4/5 md:aspect-square not-md:size-full !overflow-y-hidden">
         <DialogHeader className="!text-2xl mb-2">
           Search
         </DialogHeader>
-        <DialogBody>
+        <DialogBody className="flex flex-col gap-4 items-stretch h-full">
           <SearchText id='Search Bar' label='Search Virtual Labs' data={search} changeData={e => setSearch(e.target.value)} />
+          <div className="border-gray-400/60 w-full overflow-y-auto grow flex border-t mb-12 pt-14 pb-12 pr-4">
+            <SearchContent data={filteredSearch} isSearchEmpty={isSearchEmpty} />
+          </div>
         </DialogBody>
       </DialogContent>
     </Dialog>
@@ -381,5 +426,43 @@ export function SearchText({ label, id, name, inputClassName, data, changeData, 
         </datalist>
       )}
     </label>
+  )
+}
+
+function SearchContent({ data, isSearchEmpty }: { data: SearchProps[], isSearchEmpty: boolean}) {
+  return (
+    <div className="flex flex-col gap-4 w-full justify-center">
+      {
+        isSearchEmpty ?
+        <div className="text-center text-gray-400">
+          Search experiments, resources, articles
+        </div> :
+        data.length === 0 ?
+        <div className="text-center text-gray-400">
+          No results found
+        </div> :
+        data.map(singleData => (
+          <SearchSuggestion key={singleData.id} data={singleData} />
+        ))
+      }
+    </div>
+  )
+}
+
+function SearchSuggestion({data}: { data: SearchProps }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
+        <Link href={data.link} className="flex items-center justify-between text-sm rounded-xl p-4 bg-violet-950/30 hover:bg-violet-950 transition">
+          <div>{data.title}</div>
+          <div>
+            <MdChevronRight className="size-[1.2em]" />
+          </div>
+        </Link>
+      </motion.div>
+    </AnimatePresence>
   )
 }
