@@ -4,8 +4,8 @@ import ViewableSection from "./ViewableSection";
 
 export function generateMetadata() {
   return {
-    title: "About | Virtual Labs",
-    description: "Learn about Virtual Labs"
+    title: "About VLEAD | Virtual Labs",
+    description: 'VLEAD is a platform that provides a virtual lab environment for students to learn and experiment with various technologies.',
   }
 }
 

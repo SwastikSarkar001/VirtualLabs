@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { logos } from "@/data/pastteam";
+import { logos } from "@/data/teams";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({

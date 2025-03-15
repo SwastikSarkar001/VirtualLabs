@@ -1,11 +1,11 @@
 import { Montserrat } from "next/font/google";
 
-type StakeholdersType = {
+type ResponsibilityType = {
   heading: string,
   description: string,
 }
 
-const stakeholdersData = [
+const responsibilities = [
   {
     heading: "Cloud Infrastructure",
     description: 'Designing, implementing, and managing cloud infrastructure.'
@@ -21,6 +21,14 @@ const stakeholdersData = [
   {
     heading: 'Process Control and Pan-institute Coordination',
     description: 'Coordinating processes and ensuring pan-institute coordination.'
+  },
+  {
+    heading: 'Central Analytics',
+    description: 'Collecting and reporting analytics data.'
+  },
+  {
+    heading: 'Build Automation',
+    description: 'Scripting and hosting for automation of build processes.'
   },
   {
     heading: 'Performance & Security Enhancements',
@@ -57,23 +65,22 @@ export default function Motivation() {
   return (
     <div>
       <h1 className={`text-4xl mb-8 font-bold text-center py-5 ${montserrat.className}`}>Virtual Labs Engineering Architecture and Design</h1>
-      <p className="text-lg mb-16">Virtual Labs, an Ministry of Education project under NMEICT, offers free remote laboratory learning experiences. Workshops and nodal centers support institute partnerships within the Virtual Labs consortium. The project, led by IIT Delhi and involving eleven institutes, provides over 190 Virtual Labs and 1600+ web-enabled experiments across various domains using open-source technologies. These simulations are accessible online without any additional infrastructure or fees.</p>
-      <h1 className={`text-4xl mb-8 font-bold text-center py-2 ${montserrat.className}`}>Our Purpose</h1>
+      <p className="text-lg mb-8">The Virtual Labs Engineering, Architecture, and Design (VLEAD) Team at IIIT Hyderabad is a dedicated team responsible for overseeing the central platform engineering operations, engineering, and development coordination. The team&apos;s key responsibilities include:</p>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-16 justify-items-center mb-16">
-        {stakeholdersData.map((stakeholder, index) => (
-          <Card key={index} stakeholder={stakeholder} />
+        {responsibilities.map((responsibility, index) => (
+          <Card key={index} responsibility={responsibility} />
         ))}
       </div>
     </div>
   )
 }
 
-function Card({ stakeholder }: { stakeholder: StakeholdersType }) {
+function Card({ responsibility }: { responsibility: ResponsibilityType }) {
   return (
     <div className="relative z-1 bg-linear-130 aspect-[5/4] max-w-100 from-foreground via-40% via-background to-120% to-foreground p-px rounded-tl-4xl rounded-br-4xl rounded-tr-2xl rounded-bl-2xl">
       <div className="size-full bg-background rounded-tl-4xl rounded-br-4xl rounded-tr-2xl rounded-bl-2xl text-center flex flex-col gap-8 items-center justify-center p-6">
-        <h2 className="font-semibold text-2xl">{stakeholder.heading}</h2>
-        <p className="font-extralight text-lg">{stakeholder.description}</p>
+        <h2 className="font-semibold text-2xl">{responsibility.heading}</h2>
+        <p className="font-extralight text-lg">{responsibility.description}</p>
       </div>
     </div>
   )

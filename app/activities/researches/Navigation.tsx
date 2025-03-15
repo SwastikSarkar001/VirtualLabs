@@ -3,10 +3,9 @@
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { idType } from './ViewableSection';
-import { GrGallery, GrWorkshop } from 'react-icons/gr';
-import { TbBuildingPlus } from 'react-icons/tb';
-import { BiSolidQuoteLeft } from 'react-icons/bi';
-import { FaInfo } from 'react-icons/fa';
+import { GrWorkshop } from 'react-icons/gr';
+import { GrProjects } from "react-icons/gr";
+import { LuMessagesSquare } from "react-icons/lu";
 
 export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: (tab: idType) => void }) {
   const [position, setPosition] = useState({ left: 0, width: 0 });
@@ -49,54 +48,34 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
       onMouseLeave={handleNavMouseLeave}
     >
       <Tab
-        tooltip='Gallery'
-        tabId='Gallery'
+        tooltip='Open Problems'
+        tabId='OpenProblems'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Gallery'] = el)}
+        registerRef={(el) => (tabRefs.current['OpenProblems'] = el)}
       >
-        <GrGallery />
-        <div>Gallery</div>
+        <GrProjects />
+        <div>Open Problems</div>
       </Tab>
       <Tab
-        tooltip='Workshops'
-        tabId='Workshops'
+        tooltip='Publications'
+        tabId='Publications'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Workshops'] = el)}
+        registerRef={(el) => (tabRefs.current['Publications'] = el)}
       >
         <GrWorkshop />
-        <div>Workshops</div>
+        <div>Publications</div>
       </Tab>
       <Tab
-        tooltip='Node Centers'
-        tabId='Nodes'
+        tooltip='Talks'
+        tabId='Talks'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Nodes'] = el)}
+        registerRef={(el) => (tabRefs.current['Talks'] = el)}
       >
-        <TbBuildingPlus />
-        <div>Node Centers</div>
-      </Tab>
-      <Tab
-        tooltip='Testimonials'
-        tabId='Testimonials'
-        setActiveTab={setActiveTab}
-        setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Testimonials'] = el)}
-      >
-        <BiSolidQuoteLeft />
-        <div>Testimonials</div>
-      </Tab>
-      <Tab
-        tooltip='FAQ'
-        tabId='FAQ'
-        setActiveTab={setActiveTab}
-        setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['FAQ'] = el)}
-      >
-        <FaInfo />
-        <div>FAQ</div>
+        <LuMessagesSquare />
+        <div>Talks</div>
       </Tab>
       <Cursor position={position} />
     </motion.nav>

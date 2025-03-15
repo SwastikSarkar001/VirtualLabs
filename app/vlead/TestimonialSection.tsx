@@ -1,10 +1,17 @@
 import { vlabsTestimonials, VLabsTestimonialType } from "@/data/testimonials"
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-montserrat-font",
+});
 
 export default function TestimonialSection() {
   return (
     <div>
-      <h1 className="text-4xl mb-16 font-bold text-center">
+      <h1 className={`text-4xl mb-16 font-bold text-center ${montserrat.className}`}>
         Testimonials
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-16 justify-items-center mb-16">

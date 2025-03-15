@@ -6,7 +6,6 @@ import { idType } from './ViewableSection';
 import { GrGallery, GrWorkshop } from 'react-icons/gr';
 import { TbBuildingPlus } from 'react-icons/tb';
 import { BiSolidQuoteLeft } from 'react-icons/bi';
-import { FaInfo } from 'react-icons/fa';
 
 export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: (tab: idType) => void }) {
   const [position, setPosition] = useState({ left: 0, width: 0 });
@@ -49,54 +48,44 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
       onMouseLeave={handleNavMouseLeave}
     >
       <Tab
-        tooltip='Gallery'
-        tabId='Gallery'
+        tooltip='On-Boarding and Hosting'
+        tabId='Hosting'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Gallery'] = el)}
+        registerRef={(el) => (tabRefs.current['Hosting'] = el)}
       >
         <GrGallery />
-        <div>Gallery</div>
+        <div>Hosting</div>
       </Tab>
       <Tab
-        tooltip='Workshops'
-        tabId='Workshops'
+        tooltip='Developer Tools'
+        tabId='Developer'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Workshops'] = el)}
+        registerRef={(el) => (tabRefs.current['Developer'] = el)}
       >
         <GrWorkshop />
-        <div>Workshops</div>
+        <div>Developer Tools</div>
       </Tab>
       <Tab
-        tooltip='Node Centers'
-        tabId='Nodes'
+        tooltip='Progressive Web Application'
+        tabId='WebApp'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Nodes'] = el)}
+        registerRef={(el) => (tabRefs.current['WebApp'] = el)}
       >
         <TbBuildingPlus />
-        <div>Node Centers</div>
+        <div>Progressive Web Application</div>
       </Tab>
       <Tab
-        tooltip='Testimonials'
-        tabId='Testimonials'
+        tooltip='See Also'
+        tabId='SeeAlso'
         setActiveTab={setActiveTab}
         setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['Testimonials'] = el)}
+        registerRef={(el) => (tabRefs.current['SeeAlso'] = el)}
       >
         <BiSolidQuoteLeft />
-        <div>Testimonials</div>
-      </Tab>
-      <Tab
-        tooltip='FAQ'
-        tabId='FAQ'
-        setActiveTab={setActiveTab}
-        setPosition={setPosition}
-        registerRef={(el) => (tabRefs.current['FAQ'] = el)}
-      >
-        <FaInfo />
-        <div>FAQ</div>
+        <div>See Also</div>
       </Tab>
       <Cursor position={position} />
     </motion.nav>
