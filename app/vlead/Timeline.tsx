@@ -90,7 +90,7 @@ export default function Timeline({ items = [] }: TimelineProps) {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="overflow-hidden list-disc pl-5 pt-3"
+                          className="overflow-hidden px-2 pt-3 text-sm"
                         >
                           {
                             item.description.map((desc, index) => (

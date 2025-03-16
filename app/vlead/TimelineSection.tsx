@@ -1,7 +1,7 @@
 "use client"
 import { Montserrat } from "next/font/google"
 import Timeline from "./Timeline"
-import { LuCode, LuRocket, LuStar, LuZap } from "react-icons/lu"
+import { LuStar } from "react-icons/lu"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -49,7 +49,7 @@ export default function TimelineSection() {
         'Summer/Winter/Remote Internships',
         'Pilot Translation of 2 Labs (Hindi and Telugu)'
       ],
-      icon: <LuCode className="w-3 h-3 text-white" />,
+      icon: <LuStar className="w-3 h-3 text-white" />,
     },
     {
       id: "3",
@@ -68,7 +68,7 @@ export default function TimelineSection() {
         'Maintenance of Labs',
         'Outreach Portal',
       ],
-      icon: <LuRocket className="w-3 h-3 text-white" />,
+      icon: <LuStar className="w-3 h-3 text-white" />,
     },
     {
       id: "4",
@@ -79,7 +79,7 @@ export default function TimelineSection() {
         'Development of 27 Labs',
         'Outreach Workshops'
       ],
-      icon: <LuZap className="w-3 h-3 text-white" />,
+      icon: <LuStar className="w-3 h-3 text-white" />,
     }
   ]
 
