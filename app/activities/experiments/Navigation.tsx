@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { idType } from './ViewableSection';
-import { GrGallery, GrWorkshop } from 'react-icons/gr';
-import { TbBuildingPlus } from 'react-icons/tb';
-import { BiSolidQuoteLeft } from 'react-icons/bi';
+import { FaPersonChalkboard } from "react-icons/fa6";
+import { MdApps } from "react-icons/md";
+import { BsTools } from "react-icons/bs";
+import { FaInfo } from "react-icons/fa";
 
 export default function Navigation({ activeTab, setActiveTab }: { activeTab: idType; setActiveTab: (tab: idType) => void }) {
   const [position, setPosition] = useState({ left: 0, width: 0 });
@@ -54,7 +55,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         setPosition={setPosition}
         registerRef={(el) => (tabRefs.current['Hosting'] = el)}
       >
-        <GrGallery />
+        <FaPersonChalkboard />
         <div>Hosting</div>
       </Tab>
       <Tab
@@ -64,7 +65,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         setPosition={setPosition}
         registerRef={(el) => (tabRefs.current['Developer'] = el)}
       >
-        <GrWorkshop />
+        <BsTools />
         <div>Developer Tools</div>
       </Tab>
       <Tab
@@ -74,7 +75,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         setPosition={setPosition}
         registerRef={(el) => (tabRefs.current['WebApp'] = el)}
       >
-        <TbBuildingPlus />
+        <MdApps />
         <div>Progressive Web Application</div>
       </Tab>
       <Tab
@@ -84,7 +85,7 @@ export default function Navigation({ activeTab, setActiveTab }: { activeTab: idT
         setPosition={setPosition}
         registerRef={(el) => (tabRefs.current['SeeAlso'] = el)}
       >
-        <BiSolidQuoteLeft />
+        <FaInfo />
         <div>See Also</div>
       </Tab>
       <Cursor position={position} />
