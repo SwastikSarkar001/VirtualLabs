@@ -39,7 +39,7 @@ function TOC() {
 function Content() {
   return (
     <div className="text-left">
-      <h2 id='overview' className={`${ montserrat.className } blog-h2`}>Generative AI</h2>
+      <h2 id='genai' className={`${ montserrat.className } blog-h2`}>Generative AI</h2>
         <p className="mb-2">Virtual Labs is seeking to integrate Generative AI into various aspects of content generation, such as summarizing content for users and generating questions based on content. The following series of projects will address different stages of this initiative:</p>
         <ol className="list-decimal pl-5 mb-8">
           <li><p>Identify open-source Large Language Models (LLMs) suitable for fine-tuning for educational purposes.</p></li>
@@ -67,12 +67,12 @@ function Content() {
       </ol>
 
       <h2 id='software' className={`${ montserrat.className } blog-h2`}>Software Engineering</h2>
-      <ol className="list-decimal pl-5 mb-4">
+      <ol className="list-decimal pl-5 mb-8">
         <li>Build reusable components for all Virtual Labs data structure experiments</li>
         <li>Upgrade the Virtual Labs cloud infrastructure</li>
       </ol>
       <h2 id='tools' className={`${ montserrat.className } blog-h2`}>Tools</h2>
-      <ol className="list-decimal pl-5 mb-4">
+      <ol className="list-decimal pl-5 mb-8">
         <li>Build a plagiarism validator tool for Virtual Labs.</li>
         <li>Integrate a programming interface to Virtual Labs. The interface should be able to validate the correctness of the code.</li>
         <li>Build a progressive web app for Virtual Labs</li>

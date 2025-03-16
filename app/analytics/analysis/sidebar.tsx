@@ -7,10 +7,6 @@ import { LuChevronLeft, LuChevronRight, LuLayoutDashboard, LuMenu, LuSettings, L
 import { FaChartBar } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 
-
-
-
-
 export default function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const pathname = usePathname()
   const [isCollapsed, setIsCollapsed] = React.useState(false)

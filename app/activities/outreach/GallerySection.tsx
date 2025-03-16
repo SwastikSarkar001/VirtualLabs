@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google"
 import Image from "next/image";
 
@@ -51,17 +52,24 @@ export default function GallerySection() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-16 justify-items-center mb-16">
         {
           images.map((image, index) => (
-            <div key={index} className="relative w-full h-64 md:h-80 xl:h-96">
+            <motion.div
+              key={index}
+              className="relative w-full h-64 md:h-80 xl:h-96"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
               <Image
-                src={`${baseUrl}${image}`}
-                alt={image}
-                className="rounded-lg shadow-xl object-cover"
-                fill
-                onError={(e) => {
-                  e.currentTarget.src = '/images/placeholder.png';
-                }}
+              src={`${baseUrl}${image}`}
+              alt={image}
+              className="rounded-lg shadow-xl object-cover"
+              fill
+              onError={(e) => {
+                e.currentTarget.src = '/images/placeholder.png';
+              }}
               />
-            </div>
+            </motion.div>
           ))
         }
       </div>

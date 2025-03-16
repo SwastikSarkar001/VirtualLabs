@@ -2,15 +2,10 @@
 
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
-
-export interface Logo {
-  id: number
-  name: string
-  src: string
-}
+import { InstituteProp } from "@/data/data"
 
 interface InfiniteLogoSliderProps {
-  logos: Logo[]
+  logos: InstituteProp[]
   speed?: number
   direction?: "left" | "right"
   pauseOnHover?: boolean

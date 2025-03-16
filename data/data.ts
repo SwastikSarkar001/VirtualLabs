@@ -9,6 +9,12 @@ export type FieldProp = {
   fieldRouteName: string
 }
 
+export type InstituteProp = {
+  id: number
+  name: string
+  src: string
+}
+
 export type CourseProp = {
   courseId: string
   courseName: string
@@ -20,6 +26,64 @@ export type CourseProp = {
   courseFavourite: boolean
   courseRouteUrl: string
 }
+
+export const institutes: InstituteProp[] = [
+  {
+    id: 1,
+    name: 'IIT Kharagpur',
+    src: '/institute-logos/iitkgp.svg',
+  },
+  {
+    id: 2,
+    name: 'IIT Roorkee',
+    src: '/institute-logos/iitr.svg',
+  },
+  {
+    id: 3,
+    name: 'IIT Guwahati',
+    src: '/institute-logos/iitg.svg',
+  },
+  {
+    id: 4,
+    name: 'IIT Delhi',
+    src: '/institute-logos/iitd.svg',
+  },
+  {
+    id: 5,
+    name: 'IIT Bombay',
+    src: '/institute-logos/iitb.svg',
+  },
+  {
+    id: 6,
+    name: 'IIT Kanpur',
+    src: '/institute-logos/iitk.svg',
+  },
+  {
+    id: 7,
+    name: 'IIIT Hyderabad',
+    src: '/institute-logos/iiith.png',
+  },
+  {
+    id: 8,
+    name: 'Amrita Vishwa Vidyapeetham',
+    src: '/institute-logos/avv.svg',
+  },
+  {
+    id: 9,
+    name: 'Dayalbagh Educational Institute',
+    src: '/institute-logos/dei.png',
+  },
+  {
+    id: 10,
+    name: 'NITK Surathkal',
+    src: '/institute-logos/nitk.png'
+  },
+  {
+    id: 11,
+    name: 'COEP Technological University, Pune',
+    src: '/institute-logos/coep.png'
+  }
+]
 
 export const subjects: FieldProp[] = [
   {
