@@ -248,10 +248,10 @@ type TabType = React.PropsWithChildren<{
 
 function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab }: TabType) {
   const listRef = useRef<HTMLLIElement>(null);
+  // Check if the device is touch-enabled.
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
-  // Handle hover (for desktop) and tap/click (for mobile) events.
-  const handleMouseLeave = () => setActiveTab(null);
-  const handleClick = () => setActiveTab(prev => (prev === tabId ? null : tabId));
+  // Get the position of the tab for the cursor highlight.
   const getPos = () => {
     if (listRef.current) {
       const { width } = listRef.current.getBoundingClientRect();
@@ -261,21 +261,28 @@ function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab
         opacity: 1
       });
     }
-  }
-  const handleMouseEnter = () => {
-    setActiveTab(tabId)
+  };
+
+  // Toggle the active tab on click.
+  const handleClick = () => {
+    setActiveTab(tabId);
     getPos()
-  }
+  };
+
   return (
     <li
       ref={listRef}
       className="relative z-1 w-max group transition-all"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
+      onMouseEnter={!isTouchDevice ? () => {
+          setActiveTab(tabId);
+          getPos();
+        } : undefined
+      }
+      onMouseLeave={!isTouchDevice ? () => setActiveTab(null) : undefined}
     >
       <div className="flex items-center gap-2 text-xl cursor-pointer">
-        { children }
+        {children}
       </div>
       <AnimatePresence>
         {activeTab === tabId && (
@@ -284,13 +291,13 @@ function Tab({ children, tabId, setPosition, subOptions, activeTab, setActiveTab
             animate={{ opacity: 1, y: -2 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className=" absolute -top-2 left-[110%] w-80 mt-2 z-20 rounded shadow-lg p-2 flex flex-col gap-2"
+            className="absolute -top-2 left-[110%] w-80 mt-2 z-20 rounded shadow-lg p-2 flex flex-col gap-2"
           >
             {subOptions.map((option) => (
               <Link
                 key={option.href}
                 href={option.href}
-                className= {`hover:underline py-2`}
+                className="hover:underline py-2"
               >
                 {option.label}
               </Link>
@@ -357,11 +364,11 @@ function Search() {
   return (
     <Dialog>
       <DialogTrigger asChild onClick={() => setSearch('')}>
-      <button aria-label="Open Search" className="cursor-pointer flex gap-1.5 text-sm items-center transition-colors rounded-full text-foreground hover:text-fuchsia-400">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
-      </button>
+        <button aria-label="Open Search" className="cursor-pointer flex gap-1.5 text-sm items-center transition-colors rounded-full text-foreground hover:text-fuchsia-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </button>
       </DialogTrigger>
       <DialogContent className="font-body md:h-4/5 md:aspect-square not-md:size-full !overflow-y-hidden">
         <DialogHeader className="!text-2xl mb-2">

@@ -133,6 +133,7 @@ function Tab({ children, tabId, setPosition, setActiveTab, tooltip, registerRef 
   return (
     <div
       ref={divRef}
+      tabIndex={0}
       className="group select-none *:first:block lg:*:first:hidden *:nth-last-[2]:hidden lg:*:nth-last-[2]:block cursor-pointer mix-blend-difference relative z-1 px-2 py-3 lg:px-4 lg:py-2 rounded-full text-2xl lg:text-lg"
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}
