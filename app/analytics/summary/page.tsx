@@ -27,7 +27,7 @@ const colors = [
 
 export function generateMetadata() {
   return {
-    title: "Summary | Virtual Labs",
+    title: "Summary",
     description: "Summary of user engagement with Virtual Labs"
   }
 }

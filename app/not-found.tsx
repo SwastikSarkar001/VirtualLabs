@@ -8,6 +8,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat-font",
 });
 
+export function generateMetadata() {
+  return {
+    title: "404 - Page Not Found",
+    description: "Oops! The page you're looking for doesn't exist. It might have been moved or deleted.",
+  };
+}
 
 export default function NotFound() {
   return (

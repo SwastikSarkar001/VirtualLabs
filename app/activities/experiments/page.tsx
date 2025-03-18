@@ -4,7 +4,7 @@ import ViewableSection from "./ViewableSection";
 
 export function generateMetadata() {
   return {
-    title: "Experiments and Developments | Virtual Labs",
+    title: "Experiments and Developments",
     description: 'Explore the experiments and developments in the field of Virtual Labs.'
   };
 }

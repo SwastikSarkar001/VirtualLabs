@@ -9,13 +9,13 @@ export async function generateMetadata({ params }: { params: Promise<{ course: s
 
   if (!courseData) {
     return {
-      title: "Not Found | Virtual Labs",
+      title: "Not Found",
       description: "This page does not exist",
     }
   }
 
   return {
-    title: `${courseData.courseName} | Virtual Labs`,
+    title: `${courseData.courseName}`,
     description: `Learn ${courseData.courseName} with Virtual Labs`,
   }
 }

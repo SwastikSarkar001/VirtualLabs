@@ -8,9 +8,43 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Virtual Labs",
-  description: "Virtual Labs for Engineering Education",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  title: {
+    default: "Virtual Labs",
+    template: "%s | Virtual Labs",
+  },
+  description:
+    "Explore innovative Virtual Labs designed for Engineering Education. Enhance your learning with interactive experiments and engaging online content.",
+  keywords: [
+    "Virtual Labs",
+    "Engineering Education",
+    "Interactive Experiments",
+    "Online Labs",
+    "IIITH",
+  ],
   icons: '/favicon.svg',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    siteName: 'Virtual Labs',
+    images: [
+      {
+        url: '/VirtualLabs.png',
+        alt: 'Virtual Labs Preview',
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@TheVirtualLabs",
+    // creator: "@VirtualLabs",
+    images: [
+      {
+        url: `/VirtualLabs.png`,
+        alt: "Virtual Labs Preview",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({

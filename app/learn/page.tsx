@@ -9,8 +9,8 @@ import CourseGrid from "./CourseGrid"
 
 export function generateMetadata() {
   return {
-    title: `Get Started | Virtual Labs`,
-    description: `Learn with Virtual Labs`,
+    title: 'Get Started',
+    description: 'Learn with Virtual Labs',
   }
 }
 

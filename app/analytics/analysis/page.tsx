@@ -4,7 +4,7 @@ import DetailedAnalysisPage from "./DetailedAnalysisPage";
 
 export function generateMetadata() {
   return {
-    title: "Detailed Analysis | Virtual Labs",
+    title: "Detailed Analysis",
     description: "Detailed analysis of user engagement with Virtual Labs"
   }
 }

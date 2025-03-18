@@ -4,7 +4,7 @@ import ViewableSection from "./ViewableSection";
 
 export function generateMetadata() {
   return {
-    title: "About | Virtual Labs",
+    title: "About",
     description: "Learn about Virtual Labs"
   }
 }

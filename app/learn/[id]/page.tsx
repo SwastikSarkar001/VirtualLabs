@@ -21,15 +21,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const subject = subjects.find((subject) => subject.fieldRouteName === id)
 
   if (!subject) {
-    return {
-      title: "Not Found | Virtual Labs",
-      description: "This page does not exist",
-    }
+    notFound()
   }
-
-  return {
-    title: `${subject.fieldName} | Virtual Labs`,
-    description: `Learn ${subject.fieldName} with Virtual Labs`,
+  else {
+    return {
+      title: `${subject.fieldName}`,
+      description: `Learn ${subject.fieldName} with Virtual Labs`,
+    }
   }
 }
 
@@ -37,9 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const { id } = await params
   const subject = subjects.find((subject) => subject.fieldRouteName === id)
 
-  if (!subject) {
-    return notFound()
-  }
+  if (!subject) notFound()
 
   return (
     <main className="flex flex-col items-stretch font-body gap-8 min-h-screen">
